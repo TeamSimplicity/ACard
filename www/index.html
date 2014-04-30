@@ -28,17 +28,9 @@
         <title>aCard</title>
     </head>
     <body>
-<<<<<<< HEAD
-			<div id="barcodeTarget"></div>
-            <div class="page current" id="bugs">
-                <header>
-                    <h1>Open bugs</h1>
-                </header>
-=======
         <div class="splashpage">
             <div class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item center full">
->>>>>>> 5af38e333cb77f86bad715a81cfeed47dfb03173
 
                     <h1 class="topcoat-navigation-bar__title">UBC A-Card App</h1>
                 </div>
@@ -130,19 +122,6 @@
 
         
         <script type="text/javascript" src="cordova.js"></script>
-<<<<<<< HEAD
-        <script src="js/jquery-1.3.2.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/jquery-barcode.js"></script>
-		
-		<script type="text/javascript">
-			$("#barcodeTarget").barcode("123456", "codabar");
-		</script>
-		
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-=======
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/zepto.min.js"></script>
         <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>    
@@ -168,8 +147,10 @@
             success: function(data){
              alert(data);
              
-              var barcodenum = data.replace(/\D/g,'')
-              alert(barcodenum);
+              var resultarray = data.split(".");
+              //var res = data.replace(/\D/g,'')
+              alert(postback);
+
                 
                 $("#bcTarget").barcode(barcodenum, "codabar");   
 
@@ -188,6 +169,5 @@
 
 
 
->>>>>>> 5af38e333cb77f86bad715a81cfeed47dfb03173
     </body>
 </html>
