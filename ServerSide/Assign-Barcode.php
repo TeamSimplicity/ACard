@@ -18,12 +18,6 @@ $LName = mysql_real_escape_string($_POST["LName"]);
 $Faculty_ID = mysql_real_escape_string($_POST["Faculty_ID"]);
 $Grad_Year = mysql_real_escape_string($_POST["Grad_Year"]);
 
-//TEST VALUES
-$Email = "t.ratnayake1@gmail.com";
-$FName = "Thilina";
-$LName = "Ratnayake";
-$Faculty_ID ="1";
-$Grad_Year = "2014";
 
 //2. Pull next unassigned barcode to register
 
@@ -48,6 +42,8 @@ $assignmentsql = "INSERT INTO User_Info (User_ID, Barcode, User_Email, User_FNam
 $assignmentsql .= "VALUES ('NULL', '$BarcodeNum', '$Email','$FName','$LName','$Faculty_ID','$Grad_Year','0')";
 
 //Execute input
+
+
 mysql_query($assignmentsql);
 
 			//if (!mysql_query($sql, $con)) {
