@@ -23,44 +23,114 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>BAPP</title>
+        <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <title>aCard</title>
     </head>
     <body>
+<<<<<<< HEAD
 			<div id="barcodeTarget"></div>
             <div class="page current" id="bugs">
                 <header>
                     <h1>Open bugs</h1>
                 </header>
+=======
+        <div class="splashpage">
+            <div class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item center full">
+>>>>>>> 5af38e333cb77f86bad715a81cfeed47dfb03173
 
-            <ul></ul>
+                    <h1 class="topcoat-navigation-bar__title">UBC A-Card App</h1>
+                </div>
             </div>
+        
 
-            <div class="page" id="add-bug">
-                <header>
-                    <h1>Add a new bug</h1>
-                </header>
+        <div class="applybarcode">
+            <img id="aCard" src="img/aCard.jpg" alt="aCard">
+            <h1>I want my perks!</h1>
+            <button id="signup" class="topcoat-button--large--cta">Apply For The UBC A-Card!</button>
+            
+        </div>
 
-                <form>
-                    <label for="bug-title">Bug title</label>
-                    <input type="text" id="bug-title" name="bug-title">
 
-                    <label for="bug-details">Bug details</label>
-                    <textarea id="bug-details" name="bug-details" cols="30" rows="10"></textarea>
+        </div>
 
-                    <label for="bug-priority">Bug priority</label>
-                    <select id="bug-priority" name="bug-priority">
-                        <option value="1">Urgent</option>
-                        <option value="2">High</option>
-                        <option value="3">Medium</option>
-                        <option value="4">Low</option>
+        
+        <div class="signupform" id="signup-form">
+
+            <form>
+                <h1>Sign-Up Form</h1>
+                <label for="EMail">EMail</label>
+                    <input type="text" id="EMail" name="EMail">
+                <label for="FName">FName</label>
+                    <input type="text" id="FName" name="FName">
+                <label for="LName">LName</label>
+                    <input type="text" id="LName" name="LName">
+                <label for="Grad_Year">Grad_Year</label>
+                    <input type="text" id="Grad_Year" name="Grad_Year">
+                <label for="Faculty_ID">Faculty_ID</label>
+                    <select id="Faculty_ID" name="Faculty_ID">
+                        <option value="1">Faculty 1</option>
+                        <option value="2">Faculty 2</option>
+                        <option value="3">Faculty 3</option>
+                        <option value="4">Faculty 4</option>
+                        <option value="5">Faculty 5</option>
                     </select>
 
-                    <input type="submit" value="Add bug">
-                </form>
-            </div>
+                <input type="submit" value="Add-User">
+            </form>
+                
+        </div>
 
+
+        <div class="page1">
+                <div class="topcoat-tab-bar">
+                <label class="topcoat-tab-bar__item">
+                <input type="radio" name="topcoat" class="hide-input">
+                <button id="acard-btn"class="topcoat-tab-bar__button">A-Card</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                <input type="radio" name="topcoat">
+                <button id="perks-btn"class="topcoat-tab-bar__button">Perks</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                <input type="radio" name="topcoat">
+                <button class="topcoat-tab-bar__button">About</button>
+                </label>
+                </div>
+
+                <h1>PAGE1</h1>
+                <h3>Name</h3>
+                <h3 id="Name"></h3>
+                <div id="bcTarget"></div> 
+
+        </div>
+
+        <div class="page2">
+                <div class="topcoat-tab-bar">
+                <label class="topcoat-tab-bar__item">
+                <input id="acard-btn" type="radio" name="topcoat" class="hide-input">
+                <button class="topcoat-tab-bar__button">A-Card</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                <input type="radio" name="topcoat">
+                <button id="perks-btn"class="topcoat-tab-bar__button">Perks</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                <input type="radio" name="topcoat">
+                <button class="topcoat-tab-bar__button">About</button>
+                </label>
+                </div>
+
+                <h1>PAGE2</h1>
+
+        </div>
+
+        
+
+        
         <script type="text/javascript" src="cordova.js"></script>
+<<<<<<< HEAD
         <script src="js/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/jquery-barcode.js"></script>
@@ -72,5 +142,52 @@
         <script type="text/javascript">
             app.initialize();
         </script>
+=======
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>    
+        <script type="text/javascript" src="js/jquery-barcode.js"></script>  
+
+
+        <script> app.initialize()</script>
+
+        
+
+        <script>
+        $('#signup-form form').submit(function(){
+        alert("invoked");
+        var loading = $(this).find('input[type="submit"]');
+        loading.addClass('loading');
+        
+        var postData = $(this).serialize();
+
+        $.ajax({
+            type: 'POST',
+            data: postData,
+            url: 'http://tratnayake.me/Assign-Barcode.php',
+            success: function(data){
+             alert(data);
+             
+              var barcodenum = data.replace(/\D/g,'')
+              alert(barcodenum);
+                
+                $("#bcTarget").barcode(barcodenum, "codabar");   
+
+                
+                console.log('Form Sent!');
+            },
+            error: function(){
+                loading.removeClass('loading');
+                console.log('There was an error');
+            }
+        });
+
+        return false;
+    });</script>
+
+
+
+
+>>>>>>> 5af38e333cb77f86bad715a81cfeed47dfb03173
     </body>
 </html>

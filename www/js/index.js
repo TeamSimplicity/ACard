@@ -16,76 +16,90 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 var app = {
-    // Application Constructor
     initialize: function() {
-        this.bindEvents();
+        this.bind();
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+    bind: function() {
+        document.addEventListener('deviceready', this.deviceready, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+    deviceready: function() {
+        // note that this is an event handler so the scope is that of the event
+        // so we need to call app.report(), and not this.report()
+        app.report('deviceready');
     },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    report: function(id) { 
+        console.log("report:" + id);
+        // hide the .pending <p> and show the .complete <p>
+        document.querySelector('#' + id + ' .pending').className += ' hide';
+        var completeElem = document.querySelector('#' + id + ' .complete');
+        completeElem.className = completeElem.className.split('hide').join('');
     }
 };
 
-$(function(){
+$(document).on('deviceready', function(){
+	
+	function loadBugs() {
+		var bugs = $('#bugs ul').empty();
+		
+		$.ajax({
+			type: 'GET',
+			url: 'http://localhost/bapp/bugs.php?&jsoncallback=?',
+			dataType: 'JSONp',
+			timeout: 5000,
+			success: function(data) {
+				$.each(data, function(i,item){
+					bugs.append('<li>'+item.title)
+				});
+			},
+			error: function(data) {
+				bugs.append('<li>There was an error loading the bugs');
+			}
+		});
+	}
+	
+	$('#signup-form form').submit(function(){
+		alert("invoked");
+		var loading = $(this).find('input[type="submit"]');
+		loading.addClass('loading');
+		
+		var postData = $(this).serialize();
 
-    function loadBugs() {
-        var bugs = $('#bugs ul');
+		$.ajax({
+			type: 'POST',
+			data: postData,
+			url: 'http://tratnayake.me/Assign-Barcode.php',
+			success: function(data){
 
-        $.ajax({
-            type: 'GET',
-            url: 'http://tratnayake.me/bugs.php?&jsoncallback=?',
-            dataType: 'JSONp',
-            timeout: 5000,
-            success: function(data) {
-                $.each(data, function(i,item){
-                    bugs.append('<li>'+item.Faculty_Name)
-                });
-            },
-            error: function(data) {
-                bugs.append('<li>There was an error loading the bugs');
-            }
-        });
-    }
+				
+				console.log('Form Sent!');
+			},
+			error: function(){
+				loading.removeClass('loading');
+				console.log('There was an error');
+			}
+		});
 
-    loadBugs();
+		return false;
+	});
+	
+	//change .tap to .click for browser testing
+	$('.button').tap(function(e){
+		var nextPage = $(e.target.hash);
+		var currentPage = $('.page.current');
 
+		if (nextPage.attr('id') != currentPage.attr('id')) {
+			nextPage.addClass('current');
+			currentPage.removeClass('current');
+		}
+
+		return false;
+	});
+	
+	loadBugs();
+	
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
