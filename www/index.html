@@ -28,7 +28,7 @@
         <title>aCard</title>
     </head>
     <body>
-        <div class="splashpage">
+        <div id="splashpage" class="splashpage">
             <div class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item center full">
 
@@ -37,7 +37,7 @@
             </div>
         
 
-        <div class="applybarcode">
+        <div id="applybarcode" class="applybarcode">
             <img id="aCard" src="img/aCard.jpg" alt="aCard">
             <h1>I want my perks!</h1>
             <button id="signup" class="topcoat-button--large--cta">Apply For The UBC A-Card!</button>
@@ -48,26 +48,26 @@
         </div>
 
         
-        <div class="signupform" id="signup-form">
+        <div id="signupform" class="signupform" id="signup-form">
 
             <form>
                 <h1>Sign-Up Form</h1>
-                <label for="EMail">EMail</label>
-                    <input type="text" id="EMail" name="EMail">
-                <label for="FName">FName</label>
-                    <input type="text" id="FName" name="FName">
-                <label for="LName">LName</label>
-                    <input type="text" id="LName" name="LName">
-                <label for="Grad_Year">Grad_Year</label>
-                    <input type="text" id="Grad_Year" name="Grad_Year">
-                <label for="Faculty_ID">Faculty_ID</label>
+                <label for="EMail">EMail</label><br>
+                    <input type="text" id="EMail" name="EMail"><br>
+                <label for="FName">FName</label><br>
+                    <input type="text" id="FName" name="FName"><br>
+                <label for="LName">LName</label><br>
+                    <input type="text" id="LName" name="LName"><br>
+                <label for="Grad_Year">Grad_Year</label><br>
+                    <input type="text" id="Grad_Year" name="Grad_Year"><br>
+                <label for="Faculty_ID">Faculty_ID</label><br>
                     <select id="Faculty_ID" name="Faculty_ID">
                         <option value="1">Faculty 1</option>
                         <option value="2">Faculty 2</option>
                         <option value="3">Faculty 3</option>
                         <option value="4">Faculty 4</option>
                         <option value="5">Faculty 5</option>
-                    </select>
+                    </select><br>
 
                 <input type="submit" value="Add-User">
             </form>
@@ -75,7 +75,7 @@
         </div>
 
 
-        <div class="page1">
+        <div id="page1" class="page1">
                 <div class="topcoat-tab-bar">
                 <label class="topcoat-tab-bar__item">
                 <input type="radio" name="topcoat" class="hide-input">
@@ -99,7 +99,7 @@
 
         </div>
 
-        <div class="page2">
+        <div id="page2" class="page2">
                 <div class="topcoat-tab-bar">
                 <label class="topcoat-tab-bar__item">
                 <input id="acard-btn" type="radio" name="topcoat" class="hide-input">
@@ -123,58 +123,18 @@
 
         
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/zepto.min.js"></script>
-        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>    
-        <script type="text/javascript" src="js/jquery-barcode.js"></script>  
+        <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
+        <script type="text/javascript" src="js/jquery-barcode.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>  
 
 
-        <script> app.initialize()</script>
+   
 
         
 
-        <script>
-        $('#signup-form form').submit(function(){
-        alert("invoked");
-        var loading = $(this).find('input[type="submit"]');
-        loading.addClass('loading');
-        
-        var postData = $(this).serialize();
 
-        $.ajax({
-            type: 'POST',
-            data: postData,
-            url: 'http://tratnayake.me/Assign-Barcode.php',
-            success: function(data){
-             alert(data);
-             
-              var resultarray = data.split(".");
-              alert("after split");
-
-              var barcodenum = resultarray[0].replace(/\D/g,'');
-              alert(barcodenum);
-              //var res = data.replace(/\D/g,'')
-              var Name = resultarray[1];
-              alert(Name);
-
-              alert("Before display");
-
-                
-                $("#bcTarget").barcode(barcodenum, "codabar");
-                $("#User_Name").val(Name);   
-            alert ("after display");
-
-                
-                console.log('Form Sent!');
-            },
-            error: function(){
-                loading.removeClass('loading');
-                console.log('There was an error');
-            }
-        });
-
-        return false;
-    });</script>
+</script>
 
 
 
