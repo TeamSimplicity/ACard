@@ -95,6 +95,7 @@
                 <h3>Name</h3>
                 <h3 id="Name"></h3>
                 <div id="bcTarget"></div> 
+                <div id="User_Name"></div>
 
         </div>
 
@@ -148,11 +149,20 @@
              alert(data);
              
               var resultarray = data.split(".");
+              alert("after split");
+
+              var barcodenum = resultarray[0].replace(/\D/g,'');
+              alert(barcodenum);
               //var res = data.replace(/\D/g,'')
-              alert(postback);
+              var Name = resultarray[1];
+              alert(Name);
+
+              alert("Before display");
 
                 
-                $("#bcTarget").barcode(barcodenum, "codabar");   
+                $("#bcTarget").barcode(barcodenum, "codabar");
+                $("#User_Name").val(Name);   
+            alert ("after display");
 
                 
                 console.log('Form Sent!');

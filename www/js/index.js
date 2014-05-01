@@ -59,30 +59,7 @@ $(document).on('deviceready', function(){
 		});
 	}
 	
-	$('#signup-form form').submit(function(){
-		alert("invoked");
-		var loading = $(this).find('input[type="submit"]');
-		loading.addClass('loading');
-		
-		var postData = $(this).serialize();
-
-		$.ajax({
-			type: 'POST',
-			data: postData,
-			url: 'http://tratnayake.me/Assign-Barcode.php',
-			success: function(data){
-
-				
-				console.log('Form Sent!');
-			},
-			error: function(){
-				loading.removeClass('loading');
-				console.log('There was an error');
-			}
-		});
-
-		return false;
-	});
+	
 	
 	//change .tap to .click for browser testing
 	$('.button').tap(function(e){
