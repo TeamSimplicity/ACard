@@ -32,147 +32,137 @@
     </head>
     
 <body>
-        <div id="splashPage" class="splashPage">
-            <h1 class="splashTitle alumni">alumni&nbsp;<span class="ubc">UBC</span></h1>
-            <div class="splashContent">
-                <div class="splashInfo">Welcome to the UBC Alumni A-Card. It's free for all UBC Alumni. Gives you access to discounts from several partners and a host of UBC services and venues</div>
-                <img id="aCard" src="img/aCard.jpg" alt="aCard">
-                <button id="signup" class="splashSubmit">Sign Up</button>
-            </div>
+    <div id="splashPage" class="splashPage">
+        <h1 class="splashTitle alumni">alumni&nbsp;<span class="ubc">UBC</span></h1>
+        <div class="splashContent">
+            <div class="splashInfo">Welcome to the UBC Alumni A-Card.
+                                    It's free for all UBC Alumni and gives you access to discounts from several partners and a host of UBC services and venues</div>
+            <img id="aCard" src="img/aCard.jpg" alt="aCard">
+            <button id="signup" class="splashSubmit">Sign Up</button>
         </div>
-    
-        <!--            INPUT FORM                -->
-        <div id="form" class="form">
-            <form class="form_signin" role="form">
-                <input type="text" name="FName" id="FName" placeholder="First Name" />
-                <input type="text" name="LName" id="LName" placeholder="Last Name" />
-                <input type="email" name="EMail" id="Email" placeholder="Email Address" />
-                <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYY)" />
-            </form>
-            <select class="form-control">
-                <option>Select Faculty</option>
-                <option>Applied Science</option>
-                <option>Architechture and Landspace Architecture</option>
-                <option>Arts</option>
-                <option>Audiology and Speech Sciences</option>
-                <option>Business</option>
-                <option>Communication and Regional Planning</option>
-                <option>Dentistry</option>
-                <option>Education</option>
-                <option>Environmental Health</option>
-                <option>Forestry</option>
-                <option>Journalism</option>
-                <option>Kinesiology</option>
-                <option>Law</option>
-                <option>Library, Archival and Information Systems</option>
-                <option>Medicine</option>
-                <option>Music</option>
-                <option>Nursing</option>
-                <option>Pharmceutical Sciences</option>
-                <option>Population and Public Health</option>
-                <option>Science</option>
-                <option>Social Work</option>
-            </select>
-            <form>
-                <input type="submit" id="formsubmitbtn" class="btnSubmit btn-primary" />
-            </form>
+    </div>
 
-        </div>
-        <!--        BARCODE PAGE          -->
-        <div id="barcodePage" class="barcodePage">
-            <div id="bcTarget"></div>
-            <div id="User_Name">jkj</div>
-        </div>
+    <!--            INPUT FORM                -->
+    <div id="form" class="form">
+        <form class="form_signin" role="form">
+            <input type="text" name="FName" id="FName" placeholder="First Name" />
+            <input type="text" name="LName" id="LName" placeholder="Last Name" />
+            <input type="email" name="EMail" id="Email" placeholder="Email Address" />
+            <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYY)" />
+        </form>
+        <select class="form-control">
+            <option>Select Faculty</option>
+            <option>Applied Science</option>
+            <option>Architechture and Landspace Architecture</option>
+            <option>Arts</option>
+            <option>Audiology and Speech Sciences</option>
+            <option>Business</option>
+            <option>Communication and Regional Planning</option>
+            <option>Dentistry</option>
+            <option>Education</option>
+            <option>Environmental Health</option>
+            <option>Forestry</option>
+            <option>Journalism</option>
+            <option>Kinesiology</option>
+            <option>Law</option>
+            <option>Library, Archival and Information Systems</option>
+            <option>Medicine</option>
+            <option>Music</option>
+            <option>Nursing</option>
+            <option>Pharmceutical Sciences</option>
+            <option>Population and Public Health</option>
+            <option>Science</option>
+            <option>Social Work</option>
+        </select>
+        <form>
+            <input type="submit" id="formsubmitbtn" class="btnSubmit btn-primary" />
+        </form>
+
+    </div>
+
+    <!--        BARCODE PAGE          -->
+    <div id="barcodePage" class="barcodePage">
+        <div id="bcTarget"></div>
+        <div id="User_Name">jkj</div>
+    </div>     
 
         
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
+    <script type="text/javascript" src="js/jquery-barcode.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>  
 
-        
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
-        <script type="text/javascript" src="js/jquery-barcode.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>  
-        
-        <script>
-            $(document).ready(function ()
+    <script>
+        $(document).ready(function ()
+        {
+            $("#form").hide();
+            $("#barcodePage").hide();
+            $("#signup").click(function ()
             {
-                $("#form").hide();
-                $("#barcodePage").hide();
-                $("#signup").click(function ()
-                {
-                    $("#form").show();
-                    $("#splashPage").hide();
-                });
-
-                $("#formsubmitbtn").click(function () {
-                    $("#barcodePage").show();
-                    $("#splashPage").hide();
-                    $("#form").hide();
-                });
-
-                $('#formsubmitbtn').click(function () {
-                    alert("invoked");
-                    var loading = $(this).find('input[type="submit"]');
-                    loading.addClass('loading');
-
-                    var postData = $(this).serialize();
-
-                    $.ajax
-                    ({
-                        type: 'POST',
-                        data: postData,
-                        url: 'http://tratnayake.me/Assign-Barcode.php',
-                        success: function (data)
-                        {
-                            alert(data);
-
-                            var resultarray = data.split(".");
-                            alert("after split");
-
-                            var barcodenum = resultarray[0].replace(/\D/g, '');
-                            alert(barcodenum);
-                            localStorage.barcodenum = barcodenum;
-                            alert("localstorage variable");
-                            alert(localStorage.barcodenum);
-                            //var res = data.replace(/\D/g,'')
-                            var Name = resultarray[1];
-                            alert(Name);
-
-                            alert("Before display");
-
-
-                            $("#bcTarget").barcode(barcodenum, "codabar");
-                            $("#User_Name").html(Name);
-                            alert("after display");
-
-                            $('#signup-form').fadeOut();
-                            $("#page1").toggle();
-
-
-                            console.log('Form Sent!');
-                        },
-
-                        error: function ()
-                        {
-                            loading.removeClass('loading');
-                            console.log('There was an error');
-                        }
-                    });
-                    alert("Before false");
-                    return false;
-                });   
+                $("#form").show();
+                $("#splashPage").hide();
             });
-        </script>
+
+            $("#formsubmitbtn").click(function () {
+                $("#barcodePage").show();
+                $("#splashPage").hide();
+                $("#form").hide();
+            });
+
+            $('#formsubmitbtn').click(function () {
+                alert("invoked");
+                var loading = $(this).find('input[type="submit"]');
+                loading.addClass('loading');
+
+                var postData = $(this).serialize();
+
+                $.ajax
+                ({
+                    type: 'POST',
+                    data: postData,
+                    url: 'http://tratnayake.me/Assign-Barcode.php',
+                    success: function (data)
+                    {
+                        alert(data);
+
+                        var resultarray = data.split(".");
+                        alert("after split");
+
+                        var barcodenum = resultarray[0].replace(/\D/g, '');
+                        alert(barcodenum);
+                        localStorage.barcodenum = barcodenum;
+                        alert("localstorage variable");
+                        alert(localStorage.barcodenum);
+                        //var res = data.replace(/\D/g,'')
+                        var Name = resultarray[1];
+                        alert(Name);
+
+                        alert("Before display");
 
 
-   
+                        $("#bcTarget").barcode(barcodenum, "codabar");
+                        $("#User_Name").html(Name);
+                        alert("after display");
 
-        
+                        $('#signup-form').fadeOut();
+                        $("#page1").toggle();
 
 
+                        console.log('Form Sent!');
+                    },
 
+                    error: function ()
+                    {
+                        loading.removeClass('loading');
+                        console.log('There was an error');
+                    }
+                });
+                alert("Before false");
+                return false;
+            });   
+        });
+    </script>
 
-
-
-    </body>
+</body>
 </html>
