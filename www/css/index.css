@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+<<<<<<< HEAD
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -160,3 +161,21 @@ body {
     margin-top:5cm;
     margin-left:2cm;
 }
+=======
+
+
+
+.applybarcode {
+   margin-top: 10%;
+   text-align: center;
+
+}
+
+#aCard {
+    width: 80%;
+}
+
+.topcoat-tab-bar{
+    margin: auto;
+}
+>>>>>>> parent of 9f4d24d... Update with David's CSS
