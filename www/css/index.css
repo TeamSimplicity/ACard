@@ -20,11 +20,6 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-html {
-    height:100%;
-    width:100%;
-    margin:0;
-}
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -90,17 +85,6 @@ body {
     vertical-align:middle;
 }
 
-.alumni{
-    color:#F7A800;
-    font-family:whitney-medium;
-}
-
-.ubc{
-    color:#002145;
-    font:bold;
-    font-family:whitney-bold;
-}
-
 .splashContent {
     background-color:white;
 }
@@ -118,10 +102,7 @@ body {
    text-align: center;
 }
 
-#aCard {
-    width: 80%;
-    padding-top:1cm;
-}
+
 
 .splashSubmit {
     border-color:#002145;
@@ -130,11 +111,11 @@ body {
     padding-left:1.5cm;
     padding-right:1.5cm;
     padding-top:0.2cm;
-    padding-bottom:0.2cm;
+    
     font:bold;
     font-size:larger;
     font-family:whitney-bold;
-    margin-bottom:auto;
+  
     margin-top:1.5cm;
 }
 
