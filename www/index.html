@@ -163,7 +163,7 @@
 			timeout: 5000,
 			success: function(data) {
 				$.each(data, function(i,item){
-					faculty.append('<option>' + item.Faculty_Name)
+					faculty.append("<option value=" + item.Faculty_ID + ">" + item.Faculty_Name)
 				});
 			},
 			error: function (data) {
