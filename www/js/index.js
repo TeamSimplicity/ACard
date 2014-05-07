@@ -1,4 +1,5 @@
 //Not familliar with jQuery? Think of this as your MAIN class.
+
 $( document ).ready(function() {
               populatePerks();
     //Check if there's anything in the phone memory.
@@ -131,28 +132,26 @@ $( document ).ready(function() {
         });
 
 
-//ACTUAL FUNCTIONS START NOW
-function populatePerks(){
+		//ACTUAL FUNCTIONS START NOW
+		function populatePerks(){
+			$.ajax({
+					type: 'GET',
+					  url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
+					  dataType: 'JSONp',
+					  timeout: 5000,
+					  success: function(data) {
+					  $.each(data, function(i,item){
 
-$.ajax({
-        type: 'GET',
-          url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
-          dataType: 'JSONp',
-          timeout: 5000,
-          success: function(data) {
-          $.each(data, function(i,item){
-
-            //This you can get different data by doing
-            //item.Perk_ID, item.PerkCategory_ID, PerkContent, or Perk_Active (0 or 1);
-           $('#perkslist').append("<li>"+item.PerkContent+"</li>");
-      });
-        },
-        error: function(data) {
-          //do something if there is an error
-        }
-});
-
-    };
+						//This you can get different data by doing
+						//item.Perk_ID, item.PerkCategory_ID, PerkContent, or Perk_Active (0 or 1);
+					   $('#perkslist').append("<li>"+item.PerkContent+"</li>");
+				  });
+					},
+					error: function(data) {
+					  //do something if there is an error
+					}
+			});
+		};
 
 
 

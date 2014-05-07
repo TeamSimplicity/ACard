@@ -75,46 +75,42 @@
         <br style="clear: left;" />
         <br style="clear: left;" />
         
-        <form>
-            <h1>Sign-Up Form</h1>
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-          
-            
-            <input type="text" name="FName" id="FName" placeholder="First Name" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-            
-            
-            <input type="text" name="LName" id="LName" placeholder="Last Name" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-            
-            
-            <input type="email" name="EMail" id="Email" placeholder="Email Address" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-          
-            
-            <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-           
-            
-            <label for="Faculty_ID">Faculty</label><br>
-                <select id="Faculty_ID" name="Faculty_ID">
-                    <option value="1">Faculty 1</option>
-                    <option value="2">Faculty 2</option>
-                    <option value="3">Faculty 3</option>
-                    <option value="4">Faculty 4</option>
-                    <option value="5">Faculty 5</option>
-                </select>
-                <br style="clear: left;" />
-                <br style="clear: left;" />
+	<form id="signup">
+		<h1>Sign-Up Form</h1>
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	  
+		
+		<input type="text" name="FName" id="FName" placeholder="First Name" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		
+		
+		<input type="text" name="LName" id="LName" placeholder="Last Name" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		
+		
+		<input type="email" name="EMail" id="Email" placeholder="Email Address" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	  
+		
+		<input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	   
+		
+		<label for="Faculty_ID">Select a faculty:</label><br>
+		<select id="Faculty_ID" name="Faculty_ID">
+			
+		</select>
+		<br style="clear: left;" />
+		<br style="clear: left;" />
 
-            <input class="btnapply" type="submit">
-        </form>
+		<input class="btnapply" type="submit">
+	</form>
 
     </div>
 
@@ -158,7 +154,7 @@
     <script type="text/javascript" src="js/index.js"></script>  
 
 	<script>
-	var faculty = $('#Faculty_ID select');
+		var faculty = $('#signup select');
                     		
 		$.ajax({
 			type: 'GET',
