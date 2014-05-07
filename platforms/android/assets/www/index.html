@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes.
+    See https://issues.apache.org/jira/browse/CB-4323
+    -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />  
+    
+    <title>aCard</title>
+</head>
+    
+<body>
+    
+    <div id="splashpage" class="splashpage">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        
+        <img class="logo" src="img/logo.jpg" alt="logo">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        
+        <img class="logo" src="img/description.jpg" alt="description">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        
+        <img class="acard" src="img/acard2.jpg" alt="aCard">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+
+        <button id="splashenter" class="btnapply">Apply</button>
+    </div>    
+
+    
+    <div id="signup-form" class="signupform">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <img class="logo" src="img/logo.jpg" alt="logo">
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        
+	<form id="signup">
+		<h1>Sign-Up Form</h1>
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	  
+		
+		<input type="text" name="FName" id="FName" placeholder="First Name" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		
+		
+		<input type="text" name="LName" id="LName" placeholder="Last Name" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+		
+		
+		<input type="email" name="EMail" id="Email" placeholder="Email Address" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	  
+		
+		<input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+	   
+		
+		<label for="Faculty_ID">Select a faculty:</label><br>
+		<select id="Faculty_ID" name="Faculty_ID">
+			
+		</select>
+		<br style="clear: left;" />
+		<br style="clear: left;" />
+
+		<input class="btnapply" type="submit">
+	</form>
+
+    </div>
+
+
+    <div id="page1" class="page1">
+            <button value="acard-btn">A-Card</button>
+            <button value="perks-btn">Perks</button>
+            <button value="about-btn">About</button>
+
+            <h1>BARCODE PAGE</h1>
+            <h3>Name</h3>
+            <h3 id="Name"></h3>
+            <div id="bcTarget"></div> 
+            <div id="User_Name"></div>
+
+    </div>
+
+    <div id="page2" class="page2">
+            <button value="acard-btn">A-Card</button>
+            <button value="perks-btn">Perks</button>
+            <button value="about-btn">About</button>
+
+            <h1>PERKS</h1>
+            <ol id="perkslist"></ol>
+
+    </div>
+
+    <div id="page3" class="page3">
+            <button value="acard-btn">A-Card</button>
+            <button value="perks-btn">Perks</button>
+            <button value="about-btn">About</button>
+
+            <h1>ABOUT PAGE??</h1>
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
+    <script type="text/javascript" src="js/jquery-barcode.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>  
+
+	<script>
+		var faculty = $('#signup select');
+                    		
+		$.ajax({
+			type: 'GET',
+			url: 'http://tratnayake.me/Retrieve-Faculty.php?&jsoncallback=?',
+			dataType: 'JSONp',
+			timeout: 5000,
+			success: function(data) {
+				$.each(data, function(i,item){
+					faculty.append("<option value=" + item.Faculty_ID + ">" + item.Faculty_Name)
+				});
+			},
+			error: function (data) {
+				bugs.append('<li>There was an error loading the bugs');
+				faculty
+			}
+		});
+	</script>
+
+</body>
+</html>

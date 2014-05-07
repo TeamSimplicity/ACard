@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:6
+-keep class com.ubc.acard.ACard { <init>(...); }
+
