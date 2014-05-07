@@ -1,3 +1,35 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        //checkConnection();
+    
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            //return states[networkState]);
+            //alert(networkState);
+            if(networkState ="none"){
+                return false;
+            }
+            else{
+                return true;
+            }
+            
+        }
+
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
@@ -84,6 +116,7 @@ $( document ).ready(function() {
 
         //Submit button on form
         $('#signup-form form').submit(function(){
+          if(checkConnection()){
         //alert("invoked");
         var loading = $(this).find('input[type="submit"]');
         loading.addClass('loading');
@@ -128,8 +161,13 @@ $( document ).ready(function() {
             });
             $('#signup-form').fadeOut();
             $('#page1').fadeIn();
+            populatePerks();
             return false;
-        });
+        }
+        else{
+          alert("You do not have internet connectivity right now, please re-attempt when you do.");
+        }
+      });
 
 
 		//ACTUAL FUNCTIONS START NOW
@@ -152,6 +190,6 @@ $( document ).ready(function() {
 					}
 			});
 		};
-
+}
 
 
