@@ -133,21 +133,21 @@ $( document ).ready(function() {
                 data: postData,
                 url: 'http://tratnayake.me/Assign-Barcode.php',
                 success: function(data){
-                 //alert(data);
+                 alert(data);
                  
                   var resultarray = data.split(".");
                   //alert("after split");
 
                   var barcodenum = resultarray[0].replace(/\D/g,'');
                   //alert(barcodenum);
-                  //var res = data.replace(/\D/g,'')
+                  var res = data.replace(/\D/g,'')
                   var Name = resultarray[1];
                   //alert(Name);
 
                   //alert("Before display");
 
                   
-                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:30, output:bmp});
+                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:30});
                     $("#User_Name").append(Name);
                     $("#Name").append(Name);    
                 //alert ("after display");
@@ -156,6 +156,7 @@ $( document ).ready(function() {
                 localStorage.barcodeNumber = barcodenum;
                 localStorage.userName = Name;
                 pullPerks();
+                displayPerksAccordian();
 
                     
                     console.log('Form Sent!');
