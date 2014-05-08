@@ -1,7 +1,38 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        //checkConnection();
+    
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            //return states[networkState]);
+            //alert(networkState);
+            if(networkState =="none"){
+                return false;
+            }
+            else{
+                return true;
+            }
+            
+        }
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
-              populatePerks();
+              alert("Check Connection START" +checkConnection());
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
@@ -38,7 +69,7 @@ $( document ).ready(function() {
 
       //Event Listeners
 
-      //That MAIN "I want my perks!" BUTTON
+      //That MAIN "Sign-Up!" BUTTON
       $('#splashenter').click(function(){
         
         $('#splashpage').fadeOut('');
@@ -64,9 +95,16 @@ $( document ).ready(function() {
       //Perks button
       $( "button[value='perks-btn']").click(function(){
         
-        $('#page1').hide();
+        
+        pullPerks();
+        
+        //displayPerksAccordian();
+        //alert("this fires");
+        
+       $('#page1').hide();
         $('#page3').hide();
         $('#page2').show();
+        displayPerksAccordian();
        
         
 
@@ -95,7 +133,7 @@ $( document ).ready(function() {
                 data: postData,
                 url: 'http://tratnayake.me/Assign-Barcode.php',
                 success: function(data){
-                 alert(data);
+                 //alert(data);
                  
                   var resultarray = data.split(".");
                   //alert("after split");
@@ -108,8 +146,8 @@ $( document ).ready(function() {
 
                   //alert("Before display");
 
-                    
-                    $("#bcTarget").barcode(barcodenum, "codabar");
+                  
+                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:30, output:bmp});
                     $("#User_Name").append(Name);
                     $("#Name").append(Name);    
                 //alert ("after display");
@@ -117,6 +155,7 @@ $( document ).ready(function() {
                 //STORE into LOCALSTORAGE
                 localStorage.barcodeNumber = barcodenum;
                 localStorage.userName = Name;
+                pullPerks();
 
                     
                     console.log('Form Sent!');
@@ -132,26 +171,75 @@ $( document ).ready(function() {
         });
 
 
-		//ACTUAL FUNCTIONS START NOW
-		function populatePerks(){
-			$.ajax({
-					type: 'GET',
-					  url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
-					  dataType: 'JSONp',
-					  timeout: 5000,
-					  success: function(data) {
-					  $.each(data, function(i,item){
-
-						//This you can get different data by doing
-						//item.Perk_ID, item.PerkCategory_ID, PerkContent, or Perk_Active (0 or 1);
-					   $('#perkslist').append("<li>"+item.PerkContent+"</li>");
-				  });
-					},
-					error: function(data) {
-					  //do something if there is an error
-					}
-			});
-		};
+    //ACTUAL FUNCTIONS START NOW
+    function pullPerks(){
+      
+      //alert(checkConnection())
+      //1. Check if there is internet connection
+      if(checkConnection()){
 
 
+            var perksArray = [];
+      $.ajax({
+        type: 'GET',
+          url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
+          dataType: 'JSONp',
+          timeout: 5000,
+          success: function(data) {
+          $.each(data, function(i,item){
+            //console.log(item);
+            perksArray.push(item);
+            
+
+            });
+        localStorage.perksContainer = JSON.stringify(perksArray);
+        //console.log("Stored in localStorage is:" +localStorage.perksContainer);
+
+        },
+        error: function(data) {
+          //do something if there is an error
+        }
+        });
+      }
+      else{
+        alert("You need internet access to pull from the Perks Table")
+
+          
+      }
+
+
+
+
+      
+    }
+
+    function displayPerksAccordian(){
+
+      //Clear the accordian tabs:
+      for ( var i = 1; i < 5; i++ ) {
+    
+      $('#PerkCategory'+i+" div").empty();
+      }
+
+
+      //NOW start
+      var perksArray = JSON.parse(localStorage.perksContainer);
+      
+        //alert("Display perks invoked");
+        
+      jQuery.each(perksArray,function(i,val){
+        if(val.PerkActive=="1"){
+          console.log(val.PerkContent);
+          var perkCatNum = val.PerkCategory_ID;
+          //var nameValue = $('# > div').attr('name');
+          $('#PerkCategory'+perkCatNum+' div').append("<li>"+val.PerkContent+"</li>");
+          //alert('#PerkCategory'+perkCatNum+' div');
+          }
+        });
+      alert("before return");
+      return;
+    }
+
+
+}
 

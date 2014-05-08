@@ -94,11 +94,7 @@ body {
 
 .logo {
     width: 80%;
-}   
-
-.logosecondary {
-    width: 50%;
-}
+}    
 
 .acard {
     width: 80%;
@@ -116,8 +112,6 @@ body {
    
 }    
 
-   
-
 input {
     text-align:center;
     vertical-align:middle;
@@ -127,7 +121,7 @@ input {
     border-color: #002145;
     border-width: medium;
     border-style: solid;
-    padding: 4%;
+    padding: 2%;
     font-size: 1em;
     font-family: whitney-bold;
 }
@@ -154,26 +148,6 @@ select {
     border-width: medium;
     border-style: solid;
     font-size: 1em;
-    padding: 5%;
+    height: 50px;
     font-family: whitney-bold;
 }
-
-.btnchoices {
-    font-family: whitney-bold;
-    background-color:#002145;
-    color: white;   
-    border: 2px solid black;
-    padding: 5%; 
-    font-size: 2em;
-}
-
-.bcTarget {
-    
-    margin-left: auto;
-    margin-right: auto;
-    
-}
-
-
-
-
