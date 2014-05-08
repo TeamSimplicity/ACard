@@ -20,7 +20,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             states[Connection.NONE]     = 'No network connection';
 
             //return states[networkState]);
-            alert(networkState);
+            //alert(networkState);
             if(networkState =="none"){
                 return false;
             }
@@ -133,7 +133,7 @@ $( document ).ready(function() {
                 data: postData,
                 url: 'http://tratnayake.me/Assign-Barcode.php',
                 success: function(data){
-                 alert(data);
+                 //alert(data);
                  
                   var resultarray = data.split(".");
                   //alert("after split");
@@ -225,7 +225,7 @@ $( document ).ready(function() {
       //NOW start
       var perksArray = JSON.parse(localStorage.perksContainer);
       
-        alert("Display perks invoked");
+        //alert("Display perks invoked");
         
       jQuery.each(perksArray,function(i,val){
         if(val.PerkActive=="1"){
@@ -233,7 +233,7 @@ $( document ).ready(function() {
           var perkCatNum = val.PerkCategory_ID;
           //var nameValue = $('# > div').attr('name');
           $('#PerkCategory'+perkCatNum+' div').append("<li>"+val.PerkContent+"</li>");
-          alert('#PerkCategory'+perkCatNum+' div');
+          //alert('#PerkCategory'+perkCatNum+' div');
           }
         });
       alert("before return");
