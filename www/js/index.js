@@ -138,6 +138,14 @@ $( document ).ready(function() {
                   var resultarray = data.split(".");
                   //alert("after split");
 
+                  if(resultarray[0]=="null"){
+                    alert("There are no more barcodes to assign, please inform UBC alumni");
+                    return;
+                  }
+                  else {
+
+
+
                   var barcodenum = resultarray[0].replace(/\D/g,'');
                   //alert(barcodenum);
                   var res = data.replace(/\D/g,'')
@@ -160,6 +168,7 @@ $( document ).ready(function() {
 
                     
                     console.log('Form Sent!');
+                  }
                 },
                 error: function(){
                     loading.removeClass('loading');
