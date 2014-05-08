@@ -32,7 +32,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
-              alert("Check Connection START" +checkConnection());
+              //alert("Check Connection START" +checkConnection());
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
@@ -133,7 +133,7 @@ $( document ).ready(function() {
                 data: postData,
                 url: 'http://tratnayake.me/Assign-Barcode.php',
                 success: function(data){
-                 alert(data);
+                 //alert(data);
                  
                   var resultarray = data.split(".");
                   //alert("after split");
