@@ -20,8 +20,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
             states[Connection.NONE]     = 'No network connection';
 
             //return states[networkState]);
-            //alert(networkState);
-            if(networkState ="none"){
+            alert(networkState);
+            if(networkState =="none"){
                 return false;
             }
             else{
@@ -29,11 +29,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
             }
             
         }
-
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
-              populatePerks();
+              alert("Check Connection START" +checkConnection());
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
@@ -70,7 +69,7 @@ $( document ).ready(function() {
 
       //Event Listeners
 
-      //That MAIN "I want my perks!" BUTTON
+      //That MAIN "Sign-Up!" BUTTON
       $('#splashenter').click(function(){
         
         $('#splashpage').fadeOut('');
@@ -96,9 +95,16 @@ $( document ).ready(function() {
       //Perks button
       $( "button[value='perks-btn']").click(function(){
         
-        $('#page1').hide();
+        
+        pullPerks();
+        
+        //displayPerksAccordian();
+        //alert("this fires");
+        
+       $('#page1').hide();
         $('#page3').hide();
         $('#page2').show();
+        displayPerksAccordian();
        
         
 
@@ -116,7 +122,6 @@ $( document ).ready(function() {
 
         //Submit button on form
         $('#signup-form form').submit(function(){
-          if(checkConnection()){
         //alert("invoked");
         var loading = $(this).find('input[type="submit"]');
         loading.addClass('loading');
@@ -150,6 +155,7 @@ $( document ).ready(function() {
                 //STORE into LOCALSTORAGE
                 localStorage.barcodeNumber = barcodenum;
                 localStorage.userName = Name;
+                pullPerks();
 
                     
                     console.log('Form Sent!');
@@ -161,35 +167,79 @@ $( document ).ready(function() {
             });
             $('#signup-form').fadeOut();
             $('#page1').fadeIn();
-            populatePerks();
             return false;
-        }
-        else{
-          alert("You do not have internet connectivity right now, please re-attempt when you do.");
-        }
-      });
+        });
 
 
 		//ACTUAL FUNCTIONS START NOW
-		function populatePerks(){
-			$.ajax({
-					type: 'GET',
-					  url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
-					  dataType: 'JSONp',
-					  timeout: 5000,
-					  success: function(data) {
-					  $.each(data, function(i,item){
+		function pullPerks(){
+			
+      //alert(checkConnection())
+      //1. Check if there is internet connection
+      if(checkConnection()){
 
-						//This you can get different data by doing
-						//item.Perk_ID, item.PerkCategory_ID, PerkContent, or Perk_Active (0 or 1);
-					   $('#perkslist').append("<li>"+item.PerkContent+"</li>");
-				  });
-					},
-					error: function(data) {
-					  //do something if there is an error
-					}
-			});
-		};
+
+            var perksArray = [];
+      $.ajax({
+        type: 'GET',
+          url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
+          dataType: 'JSONp',
+          timeout: 5000,
+          success: function(data) {
+          $.each(data, function(i,item){
+            //console.log(item);
+            perksArray.push(item);
+            
+
+            });
+        localStorage.perksContainer = JSON.stringify(perksArray);
+        //console.log("Stored in localStorage is:" +localStorage.perksContainer);
+
+        },
+        error: function(data) {
+          //do something if there is an error
+        }
+        });
+      }
+      else{
+        alert("You need internet access to pull from the Perks Table")
+
+          
+      }
+
+
+
+
+      
+		}
+
+    function displayPerksAccordian(){
+
+      //Clear the accordian tabs:
+      for ( var i = 1; i < 5; i++ ) {
+    
+      $('#PerkCategory'+i+" div").empty();
+      }
+
+
+      //NOW start
+      var perksArray = JSON.parse(localStorage.perksContainer);
+      
+        alert("Display perks invoked");
+        
+      jQuery.each(perksArray,function(i,val){
+        if(val.PerkActive=="1"){
+          console.log(val.PerkContent);
+          var perkCatNum = val.PerkCategory_ID;
+          //var nameValue = $('# > div').attr('name');
+          $('#PerkCategory'+perkCatNum+' div').append("<li>"+val.PerkContent+"</li>");
+          alert('#PerkCategory'+perkCatNum+' div');
+          }
+        });
+      alert("before return");
+      return;
+    }
+
+
 }
-
 
