@@ -1,2 +1,2 @@
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\AndroidManifest.xml : \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\AndroidManifest.xml \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/AndroidManifest.xml : \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/AndroidManifest.xml \

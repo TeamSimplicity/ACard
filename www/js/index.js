@@ -32,6 +32,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
+  height = $( window ).height();
+  width = $( window ).width();
+  alert("Window Height:"+ height + " Window Width "+width);
               //alert("Check Connection START" +checkConnection());
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
@@ -46,6 +49,9 @@ $( document ).ready(function() {
       $('#page1').show();
       $('#page2').hide();
       $('#page3').hide();
+      var height = $( window ).height();
+      var width = $( window ).width();
+      alert("Window Height:"+ height + " Window Width "+width);
 
     }
     else {
@@ -177,7 +183,12 @@ $( document ).ready(function() {
             });
             $('#signup-form').fadeOut();
             $('#page1').fadeIn();
+
             return false;
+
+            var height = $( window ).height();
+            var width = $( window ).width();
+             alert("Window Height:"+ height + " Window Width "+width);
         });
 
 

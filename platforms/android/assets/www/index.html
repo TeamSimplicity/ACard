@@ -26,91 +26,106 @@
     -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />  
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>       
+
+<link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.min.css"/>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
     
     <title>aCard</title>
 </head>
     
 <body>
     
-    <div id="splashpage" class="splashpage">
+    <div id="splashpage" class="splashpage container">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         
-        <img class="logo" src="img/logo.jpg" alt="logo">
+        <img class="logo" src="img/logo2.png" class="img-responsive" alt="logo">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         
-        <img class="logo" src="img/description.jpg" alt="description">
+        <img class="logo" src="img/description.png" class="img-responsive" alt="description">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         
-        <img class="acard" src="img/acard2.jpg" alt="aCard">
+        <img class="acard" src="img/acard.png" class="img-responsive" alt="aCard">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
 
         <button id="splashenter" class="btnapply">Apply</button>
-    </div>    
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+    </div>     
 
     
-    <div id="signup-form" class="signupform">
+    <div id="signup-form" class="signupform container">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
-        <img class="logo" src="img/logo.jpg" alt="logo">
+        <img class="logo" src="img/logo2.png" alt="logo">
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         <br style="clear: left;" />
         
-	<form id="signup">
-		<h1>Sign-Up Form</h1>
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-	  
-		
-		<input type="text" name="FName" id="FName" placeholder="First Name" />
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-		
-		
-		<input type="text" name="LName" id="LName" placeholder="Last Name" />
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-		
-		
-		<input type="email" name="EMail" id="Email" placeholder="Email Address" />
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-	  
-		
-		<input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
-		<br style="clear: left;" />
-		<br style="clear: left;" />
-	   
-		
-		<label for="Faculty_ID">Select a faculty:</label><br>
-		<select id="Faculty_ID" name="Faculty_ID">
-			
-		</select>
-		<br style="clear: left;" />
-		<br style="clear: left;" />
+        <form id="signup">
+            <h1>Sign-Up Form</h1>
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+            <br style="clear: left;" />
 
-		<input class="btnapply" type="submit">
-	</form>
+
+            <input type="text" name="FName" id="FName" placeholder="First Name" />
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+
+
+            <input type="text" name="LName" id="LName" placeholder="Last Name" />
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+
+
+            <input type="email" name="EMail" id="Email" placeholder="Email Address" />
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+
+
+            <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+
+
+            <label for="Faculty_ID">Select a faculty:</label><br>
+            <select id="Faculty_ID" name="Faculty_ID">
+
+            </select>
+            <br style="clear: left;" />
+            <br style="clear: left;" />
+
+            <input class="btnapply" type="submit">
+        </form>
+        <br style="clear: left;" />
+        <br style="clear: left;" />
+        <br style="clear: left;" />    
 
     </div>
 
@@ -123,7 +138,7 @@
             <h1>BARCODE PAGE</h1>
             <h3>Name</h3>
             <h3 id="Name"></h3>
-            <div id="bcTarget"></div> 
+            <div id="bcTarget" style="margin:auto;width:50%"></div> 
             <div id="User_Name"></div>
 
     </div>
@@ -134,7 +149,81 @@
             <button value="about-btn">About</button>
 
             <h1>PERKS</h1>
-            <ol id="perkslist"></ol>
+            <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory1">
+          Products, Services and Subscriptions
+        </a>
+      </h4>
+    </div>
+    <div id="PerkCategory1" class="panel-collapse collapse in">
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory2">
+          Travel and Recreation
+        </a>
+      </h4>
+    </div>
+    <div id="PerkCategory2" class="panel-collapse collapse">
+      <div class="panel-body">
+       
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory3">
+          Athletic Events and Theatre
+        </a>
+      </h4>
+    </div>
+    <div id="PerkCategory3" class="panel-collapse collapse">
+      <div class="panel-body">
+      
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory4">
+          Campus Attractions
+        </a>
+      </h4>
+    </div>
+    <div id="PerkCategory4" class="panel-collapse collapse">
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory5">
+          Event Space
+        </a>
+      </h4>
+    </div>
+    <div id="PerkCategory5" class="panel-collapse collapse">
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
 
     </div>
 
@@ -148,7 +237,7 @@
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+   
     <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
     <script type="text/javascript" src="js/jquery-barcode.js"></script>
     <script type="text/javascript" src="js/index.js"></script>  

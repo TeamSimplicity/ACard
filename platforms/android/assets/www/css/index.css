@@ -28,6 +28,32 @@ html {
 }
 
 
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0p    x;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -39,32 +65,29 @@ body {
     background-color:white;
     border-left-style:solid;
     border-left-color:#002145;
-    border-left-width:12px;
+    border-left-width:25px;
     border-right-style:solid;
     border-right-color:#002145;
-    border-right-width:12px;
-    border-bottom-style:solid;
-    border-bottom-color:#002145;
-    border-bottom-width:12px;  
-    vertical-align:middle;
+    border-right-width:25px;  
     text-align: center;
+    vertical-align:middle;    
 }
 
 
 @font-face
 {
     font-family: whitneyBold;
-    src: local("fonts/whitney-bold.ttf");
+    src: local("img/whitney-bold.ttf");
 }
 @font-face
 {
     font-family: whitneyBoldItalic;
-    src: local("fonts/whitney-bolditalic.ttf");
+    src: local("img/whitney-bolditalic.ttf");
 }
 @font-face
 {
     font-family: whitneyMedium;
-    src: local("fonts/whitney-medium.ttf");
+    src: local("img/whitney-medium.ttf");
 }
 
     
@@ -74,7 +97,7 @@ body {
 }    
 
 .acard {
-    width: 70%;
+    width: 80%;
 }
 
 
@@ -83,6 +106,48 @@ body {
     background-color:#002145;
     color: white;   
     border: 2px solid black;
-    padding: 2% 20%; 
+    padding: 5% 20%; 
     border-radius:25px;
+    font-size: 2em;
+   
 }    
+
+input {
+    text-align:center;
+    vertical-align:middle;
+    margin-top:2% 6%;
+ 
+    width: 50%;
+    border-color: #002145;
+    border-width: medium;
+    border-style: solid;
+    padding: 2%;
+    font-size: 1em;
+    font-family: whitney-bold;
+}
+
+input[type="submit"] {
+    font-family: whitney-bold;
+    background-color:#002145;
+    color: white;   
+    border: 2px solid black;
+    padding: 5%; 
+    border-radius:20px;
+    text-align: center;
+    vertical-align: center;
+    width: 50%;
+   
+}  
+
+select {
+    text-align:center;
+    vertical-align:middle;
+    background: transparent;
+    width: 50%;
+    border-color: #002145;
+    border-width: medium;
+    border-style: solid;
+    font-size: 1em;
+    height: 50px;
+    font-family: whitney-bold;
+}

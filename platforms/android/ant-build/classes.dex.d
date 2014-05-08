@@ -1,9 +1,11 @@
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes.dex : \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\ACard.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\BuildConfig.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\R$attr.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\R$drawable.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\R$string.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\R$xml.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes\com\ubc\acard\R.class \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\dexedLibs\classes-3e2b6a3510967f9e05804c086ad97042.jar \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes.dex : \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/aCard.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/BuildConfig.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/R$attr.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/R$drawable.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/R$string.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/R$xml.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/com/example/aCard/R.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager$1.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager.class \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/dexedLibs/classes-1309e58f15ceda31e7fa0e9c105d9f86.jar \

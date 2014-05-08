@@ -1,4 +1,4 @@
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\ACard-debug-unaligned.apk : \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\ACard.ap_ \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\ant-build\classes.dex \
-C:\Users\user\Documents\Phonegap\acard\platforms\android\CordovaLib\ant-build\classes.jar \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/aCard-debug-unaligned.apk : \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/aCard.ap_ \
+/Users/thilinaratnayake/desktop/projects/acard/platforms/android/ant-build/classes.dex \
+/Users/thilinaratnayake/Desktop/Projects/aCard/platforms/android/CordovaLib/ant-build/classes.jar \
