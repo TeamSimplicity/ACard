@@ -90,64 +90,250 @@ body {
     src: local("img/whitney-medium.ttf");
 }
 
-    
+h1, h3, h4 {
+    font-size: 175%;
+}    
 
 .logo {
-    width: 80%;
-}    
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 60%;  
+}   
 
-.acard {
-    width: 80%;
+.logosecondary {
+    padding-bottom: 5%;
+    width: 50%;
 }
 
+.description {
+    padding-bottom: 5%;
+    width: 60%;
+}
 
-.btnapply {
+.acard {
+    padding-bottom: 5%;
+    width: 60%;
+}
+
+.btnapply {  
     font-family: whitney-bold;
     background-color:#002145;
-    color: white;   
-    border: 2px solid black;
-    padding: 5% 20%; 
-    border-radius:25px;
-    font-size: 2em;
-   
-}    
+    color: white;    
+    border: 1px solid black;
+    padding: 1% 15% 5%; 
+    border-radius:15px;
+    font-size: 1em;  
+} 
+
+.signup {
+    padding-bottom: 5%;
+} 
+
 
 input {
     text-align:center;
     vertical-align:middle;
-    margin-top:2% 6%;
- 
-    width: 50%;
+    margin-bottom: 3%;
     border-color: #002145;
-    border-width: medium;
     border-style: solid;
-    padding: 2%;
-    font-size: 1em;
     font-family: whitney-bold;
+    width: 50%;  
+    border-width: 2px;
+    padding: 4%;
+    font-size: 1em;   
+}
+
+select {
+    text-align:center;
+    vertical-align:middle;
+    background: transparent;    
+    border-color: #002145;
+    font-family: whitney-bold;
+    border-style: solid;
+    font-size: 1em;
+    margin-bottom: 5%;
+    padding: 4%;
+    width: 50%;
+    border-width: 2px;
 }
 
 input[type="submit"] {
     font-family: whitney-bold;
     background-color:#002145;
     color: white;   
-    border: 2px solid black;
-    padding: 5%; 
-    border-radius:20px;
     text-align: center;
     vertical-align: center;
-    width: 50%;
-   
+    font-size: 175%;
+    border: 2px solid black;
+    padding: 5%; 
+    border-radius: 15px;   
+    width: 50%;  
+}
+
+.btnchoices {
+    font-family: whitney-bold;
+    background-color:#002145;
+    color: white;   
+    
+    border: 2px solid black;
+ 
+    font-size: 175%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+@media (min-width: 700px) {    
+    h1, h3, h4 {
+        font-size: 300%;
+    }    
+    
+    .logo {
+        padding-top: 10%;
+        padding-bottom: 10%;
+        width: 70%;
+    }
+    
+    .logosecondary {
+        padding-bottom: 10%;
+        width: 50%;
+    }
+
+    .description {
+        padding-bottom: 10%;
+        width: 70%;
+    }
+
+    .acard {
+        padding-bottom: 10%;
+        width: 70%;
+    }
+    
+    .btnapply {
+        padding: 5% 20%;
+        border-radius:25px;
+        font-size: 2em;   
+    }
+
+    .signup {
+        padding-bottom: 10%;
+    } 
+    
+    input {
+        width: 70%;
+        border-width: 8px;
+        margin-bottom: 10%;
+        padding: 8%;
+        font-size: 300%;
+    }
+    
+    select {
+        padding: 8%;
+        width: 70%;
+        border-width: 8px;
+        margin-bottom: 10%;
+        font-size: 300%;
+    }
+    
+    input[type="submit"] {
+        border: 3px solid black;
+        padding: 10%; 
+        border-radius:25px;   
+        width: 70%;
+        font-size: 300%;
+    }
+    
+    .btnchoices {
+        font-family: whitney-bold;
+        background-color:#002145;
+        color: white;   
+
+        border: 2px solid black;
+
+        font-size: 300%;
+        margin-top: 5%;
+        margin-bottom: 15%;
+    }
+}
+
+@media (min-width: 900px) {
+    h1, h3, h4 {
+        font-size: 400%;
+    }
+    
+    .logo {
+        padding-top: 10%;
+        padding-bottom: 10%;
+        width: 80%;
+    }
+
+    .logosecondary {
+        padding-bottom: 20%;
+        width: 50%;
+    }
+
+    .description {
+        padding-bottom: 20%;
+        width: 80%;
+    }
+
+    .acard {
+        padding-bottom: 10%;
+        width: 80%;
+    }  
+    
+    .btnapply {
+        padding: 5% 20%; 
+        border-radius:25px;
+        font-size: 2.5em;               
+    }
+    
+    .signup {
+        padding-bottom: 10%;
+    }
+    
+    input {    
+        width: 70%;
+        border-width: 10px;
+        margin-bottom: 10%
+        padding: 8%;
+        font-size: 300%;
+    }
+    
+    select {
+        padding: 8%;
+        width: 70%;
+        border-width: 10px;
+        margin-bottom: 10%
+        font-size: 300%;    
+    }
+    
+    input[type="submit"] {
+        border: 2px solid black;
+        padding: 10%; 
+        border-radius:25px;   
+        width: 70%;
+        font-size: 300%;
+    }
+    
+    .btnchoices {
+        font-family: whitney-bold;
+        background-color:#002145;
+        color: white;   
+
+        border: 3px solid black;
+
+        font-size: 300%;
+        margin-top: 10%;
+        margin-bottom: 15%;
+    }
+    
+
 }  
 
-select {
-    text-align:center;
-    vertical-align:middle;
-    background: transparent;
-    width: 50%;
-    border-color: #002145;
-    border-width: medium;
-    border-style: solid;
-    font-size: 1em;
-    height: 50px;
-    font-family: whitney-bold;
-}
+   
+
+
+
+
+
+

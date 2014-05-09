@@ -48,107 +48,53 @@
   <button value="screensize-btn">GETSCREENSIZE</button>
     
     <div id="splashpage" class="splashpage container">
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        
-        <img class="logo" src="img/logo2.png" class="img-responsive" alt="logo">
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        
-        <img class="logo" src="img/description.png" class="img-responsive" alt="description">
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        
+        <img class="logo" src="img/logo2.png" class="img-responsive" alt="logo">      
+        <img class="description" src="img/description.png" class="img-responsive" alt="description">      
         <img class="acard" src="img/acard.png" class="img-responsive" alt="aCard">
         <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-
         <button id="splashenter" class="btnapply">Apply</button>
-        <br style="clear: left;" />
-        <br style="clear: left;" />
         <br style="clear: left;" />
     </div>     
 
     
     <div id="signup-form" class="signupform container">
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
+  
         <img class="logo" src="img/logo2.png" alt="logo">
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />
+
         
         <form id="signup">
-            <h1>Sign-Up Form</h1>
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-
-
+            <h1 class="signup">Sign-Up Form</h1>
             <input type="text" name="FName" id="FName" placeholder="First Name" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-
-
             <input type="text" name="LName" id="LName" placeholder="Last Name" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-
-
             <input type="email" name="EMail" id="Email" placeholder="Email Address" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-
-
             <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-
-
+            <br style="clear: left;" />
+            
             <label for="Faculty_ID">Select a faculty:</label><br>
-            <select id="Faculty_ID" name="Faculty_ID">
-
-            </select>
-                <br style="clear: left;" />
-                <br style="clear: left;" />
+            <select id="Faculty_ID" name="Faculty_ID"></select>
 
             <input class="btnapply" type="submit">
         </form>
-                <br style="clear: left;" />
-                <br style="clear: left;" />
-                <br style="clear: left;" />    
-
+        <br style="clear: left;" />
     </div>
 
 
-    <div id="page1" class="page1">
-            <button value="acard-btn">A-Card</button>
-            <button value="perks-btn">Perks</button>
-            <button value="about-btn">About</button>
+    <div id="page1" class="page1 container">
+            <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
+            <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
+            <button class="btnchoices col-xs-4" value="about-btn">About</button>
            
-            <h1>BARCODE PAGE</h1>
-            <h3>Name</h3>
-            <h3 id="Name"></h3>
+            <img class="logosecondary" src="img/logo2.png" class="img-responsive" alt="logo">
             <div id="bcTarget" style="margin:auto;width:50%"></div> 
-            <div id="User_Name"></div>
+            <h3 id="Name"></h3>
+            <h4 id="User_Name"></h4>
 
     </div>
 
-    <div id="page2" class="page2">
-            <button value="acard-btn">A-Card</button>
-            <button value="perks-btn">Perks</button>
-            <button value="about-btn">About</button>
+    <div id="page2" class="page2 container">
+            <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
+            <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
+            <button class="btnchoices col-xs-4" value="about-btn">About</button>
            
 
             <h1>PERKS</h1>
@@ -231,10 +177,10 @@
 
     </div>
 
-    <div id="page3" class="page3">
-            <button value="acard-btn">A-Card</button>
-            <button value="perks-btn">Perks</button>
-            <button value="about-btn">About</button>
+    <div id="page3" class="page3 container">
+            <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
+            <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
+            <button class="btnchoices col-xs-4" value="about-btn">About</button>
             
 
             <h1>ABOUT PAGE??</h1>
