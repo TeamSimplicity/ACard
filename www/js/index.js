@@ -32,10 +32,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //Not familliar with jQuery? Think of this as your MAIN class.
 
 $( document ).ready(function() {
-  height = $( window ).height();
-  width = $( window ).width();
-  alert("Window Height:"+ height + " Window Width "+width);
-              //alert("Check Connection START" +checkConnection());
+  
+    //DEBUG alert("Check Connection START" +checkConnection());
+
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
@@ -49,9 +48,9 @@ $( document ).ready(function() {
       $('#page1').show();
       $('#page2').hide();
       $('#page3').hide();
-      var height = $( window ).height();
-      var width = $( window ).width();
-      alert("Window Height:"+ height + " Window Width "+width);
+      //var height = $( window ).height();
+      //var width = $( window ).width();
+      //alert("Window Height:"+ height + " Window Width "+width);
 
     }
     else {
@@ -74,6 +73,19 @@ $( document ).ready(function() {
 
 
       //Event Listeners
+
+      //DEV ONLY: Clear Memory button. DELETE BEFORE DEPLOYMENT~
+      $( "button[value='clearmem-btn']").click(function(){
+        localStorage.clear();
+      });
+
+
+      $( "button[value='screensize-btn']").click(function(){
+        height = $( window ).height();
+        width = $( window ).width();
+        alert("Window Height:"+ height + " Window Width "+width);
+      });
+
 
       //That MAIN "Sign-Up!" BUTTON
       $('#splashenter').click(function(){
@@ -100,16 +112,15 @@ $( document ).ready(function() {
 
       //Perks button
       $( "button[value='perks-btn']").click(function(){
-        
-        
         pullPerks();
         
         //displayPerksAccordian();
         //alert("this fires");
         
-       $('#page1').hide();
+        $('#page1').hide();
         $('#page3').hide();
         $('#page2').show();
+
         displayPerksAccordian();
        
         
@@ -134,6 +145,24 @@ $( document ).ready(function() {
         
         var postData = $(this).serialize();
 
+        assignBarcode(postData);
+
+
+        $('#signup-form').fadeOut();
+        $('#page1').fadeIn();
+
+        return false;
+
+            //var height = $( window ).height();
+            //var width = $( window ).width();
+             //alert("Window Height:"+ height + " Window Width "+width);
+        });
+
+
+    //ACTUAL FUNCTIONS START NOW
+
+    function assignBarcode(postData){
+      
             $.ajax({
                 type: 'POST',
                 data: postData,
@@ -181,18 +210,9 @@ $( document ).ready(function() {
                     console.log('There was an error');
                 }
             });
-            $('#signup-form').fadeOut();
-            $('#page1').fadeIn();
-
-            return false;
-
-            var height = $( window ).height();
-            var width = $( window ).width();
-             alert("Window Height:"+ height + " Window Width "+width);
-        });
+    }
 
 
-    //ACTUAL FUNCTIONS START NOW
     function pullPerks(){
       
       //alert(checkConnection())
@@ -257,7 +277,7 @@ $( document ).ready(function() {
           //alert('#PerkCategory'+perkCatNum+' div');
           }
         });
-      alert("before return");
+      //alert("before return");
       return;
     }
 

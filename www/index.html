@@ -24,11 +24,11 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes.
     See https://issues.apache.org/jira/browse/CB-4323
     -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-<script type="text/javascript" src="js/jquery-2.1.0.js"></script>       
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>       
 
-<link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.min.css"/>
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -44,6 +44,8 @@
 </head>
     
 <body>
+  <button value="clearmem-btn">CLEARMEM</button>
+  <button value="screensize-btn">GETSCREENSIZE</button>
     
     <div id="splashpage" class="splashpage container">
         <br style="clear: left;" />
@@ -89,43 +91,43 @@
         
         <form id="signup">
             <h1>Sign-Up Form</h1>
-            <br style="clear: left;" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
 
             <input type="text" name="FName" id="FName" placeholder="First Name" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
 
             <input type="text" name="LName" id="LName" placeholder="Last Name" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
 
             <input type="email" name="EMail" id="Email" placeholder="Email Address" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
 
             <input type="text" name="Grad_Year" id="Grad_Year" placeholder="Graduation Year (YYYY)" />
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
 
             <label for="Faculty_ID">Select a faculty:</label><br>
             <select id="Faculty_ID" name="Faculty_ID">
 
             </select>
-            <br style="clear: left;" />
-            <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />
 
             <input class="btnapply" type="submit">
         </form>
-        <br style="clear: left;" />
-        <br style="clear: left;" />
-        <br style="clear: left;" />    
+                <br style="clear: left;" />
+                <br style="clear: left;" />
+                <br style="clear: left;" />    
 
     </div>
 
@@ -134,11 +136,11 @@
             <button value="acard-btn">A-Card</button>
             <button value="perks-btn">Perks</button>
             <button value="about-btn">About</button>
-
+           
             <h1>BARCODE PAGE</h1>
             <h3>Name</h3>
             <h3 id="Name"></h3>
-            <div id="bcTarget" style="margin:auto;width:70%"></div> 
+            <div id="bcTarget" style="margin:auto;width:50%"></div> 
             <div id="User_Name"></div>
 
     </div>
@@ -147,83 +149,85 @@
             <button value="acard-btn">A-Card</button>
             <button value="perks-btn">Perks</button>
             <button value="about-btn">About</button>
+           
 
             <h1>PERKS</h1>
+            <!--Start of the Accordian -->
             <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory1">
-          Products, Services and Subscriptions
-        </a>
-      </h4>
-    </div>
-    <div id="PerkCategory1" class="panel-collapse collapse in">
-      <div class="panel-body">
-        
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory2">
-          Travel and Recreation
-        </a>
-      </h4>
-    </div>
-    <div id="PerkCategory2" class="panel-collapse collapse">
-      <div class="panel-body">
-       
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory3">
-          Athletic Events and Theatre
-        </a>
-      </h4>
-    </div>
-    <div id="PerkCategory3" class="panel-collapse collapse">
-      <div class="panel-body">
-      
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory4">
-          Campus Attractions
-        </a>
-      </h4>
-    </div>
-    <div id="PerkCategory4" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory5">
-          Event Space
-        </a>
-      </h4>
-    </div>
-    <div id="PerkCategory5" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-      </div>
-    </div>
-  </div>
+                
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory1">
+                        Products, Services and Subscriptions
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="PerkCategory1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory2">
+                        Travel and Recreation
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="PerkCategory2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory3">
+                        Athletic Events and Theatre
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="PerkCategory3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                    
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory4">
+                        Campus Attractions
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="PerkCategory4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#PerkCategory5">
+                        Event Space
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="PerkCategory5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      
+                    </div>
+                  </div>
+                </div>
 
-
-</div>
-
+              </div>
+<!--End of accordian -->
 
     </div>
 
@@ -231,6 +235,7 @@
             <button value="acard-btn">A-Card</button>
             <button value="perks-btn">Perks</button>
             <button value="about-btn">About</button>
+            
 
             <h1>ABOUT PAGE??</h1>
 
