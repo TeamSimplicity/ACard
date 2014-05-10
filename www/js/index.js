@@ -188,18 +188,18 @@ $( document ).ready(function() {
                   var res = data.replace(/\D/g,'')
                   var Name = resultarray[1];
                   //alert(Name);
-
+                  var nameCleaned = Name.replace(/\"/g, "")
                   //alert("Before display");
 
                   
                     displayBarcode(barcodenum);
-                    $("#User_Name").append(Name);
-                    $("#Name").append(Name);    
+                    $("#User_Name").append(nameCleaned);
+                    $("#Name").append(nameCleaned);    
                 //alert ("after display");
 
                 //STORE into LOCALSTORAGE
                 localStorage.barcodeNumber = barcodenum;
-                localStorage.userName = Name;
+                localStorage.userName = nameCleaned;
                 pullPerks();
                 displayPerksAccordian();
 
