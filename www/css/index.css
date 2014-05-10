@@ -92,6 +92,10 @@ body {
 
 h1, h3, h4 {
     font-size: 175%;
+} 
+
+h5 {
+    font-size: 100%;
 }    
 
 .logo {
@@ -164,9 +168,9 @@ input[type="submit"] {
     color: white;   
     text-align: center;
     vertical-align: center;
-    font-size: 175%;
+    font-size: 125%;
     border: 2px solid black;
-    padding: 5%; 
+    padding: 3%; 
     border-radius: 15px;   
     width: 50%;  
 }
@@ -266,6 +270,10 @@ input[type="submit"] {
     h1, h3, h4 {
         font-size: 400%;
     }
+    
+    h5 {
+        font-size: 200%
+    }    
     
     .logo {
         padding-top: 15%;
