@@ -236,7 +236,7 @@ $( document ).ready(function() {
         if(width >= 900){
           //alert("width above or equal to 900");
           bWidth = 4;
-          bHeight= 100;
+          bHeight= 99;
 
         }
         else {
