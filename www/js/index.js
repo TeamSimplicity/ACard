@@ -38,7 +38,7 @@ $( document ).ready(function() {
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
-      $("#bcTarget").barcode(localStorage.barcodeNumber, "codabar",{barWidth:2, barHeight:50});
+      displayBarcode(localStorage.barcodeNumber);
       $("#User_Name").append(localStorage.userName);
       $("#Name").append(localStorage.userName);
 
@@ -192,7 +192,7 @@ $( document ).ready(function() {
                   //alert("Before display");
 
                   
-                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:50});
+                    displayBarcode(barcodenum);
                     $("#User_Name").append(Name);
                     $("#Name").append(Name);    
                 //alert ("after display");
@@ -222,6 +222,41 @@ $( document ).ready(function() {
         $('#Grad_Year').append("<option value="+i+">"+i+"</option>");
       };
 
+
+    }
+
+    function displayBarcode(barcodenumber){
+        //alert("displayBarcode invoked");
+        var height = $( window ).height();
+        var width = $( window ).width();
+        alert(width);
+        var bWidth = 1;
+        var bHeight = 50;
+
+        if(width >= 900){
+          //alert("width above or equal to 900");
+          bWidth = 3;
+          bHeight= 85;
+
+        }
+        else {
+          if (width >= 700){
+          //alert("width above or equal to 700");
+          bWidth = 2;
+          bHeight= 65;
+
+
+        }
+        else{
+         // alert("width less than 700");
+          bWidth = 1;
+          
+
+        }
+
+      }
+
+        $("#bcTarget").barcode(barcodenumber, "codabar",{barWidth:bWidth, barHeight:bHeight});
 
     }
 
