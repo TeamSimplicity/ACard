@@ -92,8 +92,10 @@ $( document ).ready(function() {
         
         $('#splashpage').fadeOut('');
         $('#signup-form').fadeIn('');
-        //$('#page1').fadeIn('');
-        //$('#page2').fadeIn('');
+        //POPULATE the years dropdown. Function takes in starting year
+        populateYears(1980);
+        //POPULATE the faculties dropdown.
+        populateFaculties();
 
       });
 
@@ -190,7 +192,7 @@ $( document ).ready(function() {
                   //alert("Before display");
 
                   
-                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:30});
+                    $("#bcTarget").barcode(barcodenum, "codabar");
                     $("#User_Name").append(Name);
                     $("#Name").append(Name);    
                 //alert ("after display");
@@ -212,6 +214,36 @@ $( document ).ready(function() {
             });
     }
 
+    function populateYears(startingYear){
+      var currentYear = (new Date).getFullYear();
+      var startYear = startingYear;
+
+      for (var i = startYear; i < currentYear; i++) {
+        $('#Grad_Year').append("<option value="+i+">"+i+"</option>");
+      };
+
+
+    }
+
+    function populateFaculties(){
+      var faculty = $('#Faculty_ID');
+                        
+    $.ajax({
+      type: 'GET',
+      url: 'http://tratnayake.me/Retrieve-Faculty.php?&jsoncallback=?',
+      dataType: 'JSONp',
+      timeout: 5000,
+      success: function(data) {
+        $.each(data, function(i,item){
+          faculty.append("<option value=" + item.Faculty_ID + ">" + item.Faculty_Name)
+        });
+      },
+      error: function (data) {
+        bugs.append('<li>There was an error loading the bugs');
+        faculty
+      }
+    });
+    }
 
     function pullPerks(){
       
