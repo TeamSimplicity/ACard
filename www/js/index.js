@@ -38,7 +38,7 @@ $( document ).ready(function() {
     //Check if there's anything in the phone memory.
     if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
       //If there is a name and number in memory then do this.
-      $("#bcTarget").barcode(localStorage.barcodeNumber, "codabar");
+      $("#bcTarget").barcode(localStorage.barcodeNumber, "codabar",{barWidth:2, barHeight:50});
       $("#User_Name").append(localStorage.userName);
       $("#Name").append(localStorage.userName);
 
@@ -192,7 +192,7 @@ $( document ).ready(function() {
                   //alert("Before display");
 
                   
-                    $("#bcTarget").barcode(barcodenum, "codabar");
+                    $("#bcTarget").barcode(barcodenum, "codabar",{barWidth:2, barHeight:50});
                     $("#User_Name").append(Name);
                     $("#Name").append(Name);    
                 //alert ("after display");
