@@ -122,7 +122,8 @@ h1, h3, h4 {
     border: 1px solid black;
     padding: 1% 15%; 
     border-radius:15px;
-    font-size: 1em;  
+    font-size: 1em;
+    margin-bottom: 5%;
 } 
 
 .signup {
@@ -183,12 +184,6 @@ input[type="submit"] {
     padding: 3%;
 }
 
-.perksaccordian {
-    font-family: whitney-bold;
-    background-color:#002145;
-    color: white;
-    font-size: 100%;
-}
 
    
 
@@ -223,6 +218,7 @@ input[type="submit"] {
         padding: 5% 20%;
         border-radius:25px;
         font-size: 2em;   
+        margin-bottom: 5%;
     }
 
     .signup {
@@ -231,23 +227,23 @@ input[type="submit"] {
     
     input {
         width: 70%;
-        border-width: 8px;
+        border-width: 5px;
         margin-bottom: 5%;
-        padding: 4%;
+        padding: 2%;
         font-size: 300%;
     }
     
     select {
-        padding: 4%;
+        padding: 2%;
         width: 70%;
-        border-width: 8px;
+        border-width: 5px;
         margin-bottom: 5%;
         font-size: 300%;
     }
     
     input[type="submit"] {
         border: 3px solid black;
-        padding: 5%; 
+        padding: 2%; 
         border-radius:25px;   
         width: 70%;
         font-size: 300%;
@@ -296,7 +292,8 @@ input[type="submit"] {
     .btnapply {
         padding: 5% 20%; 
         border-radius:25px;
-        font-size: 2.5em;               
+        font-size: 2.5em;  
+        margin-bottom: 20%;
     }
     
     .signup {
