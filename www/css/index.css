@@ -183,6 +183,13 @@ input[type="submit"] {
     padding: 3%;
 }
 
+.perksaccordian {
+    font-family: whitney-bold;
+    background-color:#002145;
+    color: white;
+    font-size: 100%;
+}
+
    
 
 @media (min-width: 700px) {    
