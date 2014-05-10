@@ -235,15 +235,15 @@ $( document ).ready(function() {
 
         if(width >= 900){
           //alert("width above or equal to 900");
-          bWidth = 3;
-          bHeight= 85;
+          bWidth = 4;
+          bHeight= 100;
 
         }
         else {
           if (width >= 700){
           //alert("width above or equal to 700");
-          bWidth = 2;
-          bHeight= 65;
+          bWidth = 3;
+          bHeight= 75;
 
 
         }
