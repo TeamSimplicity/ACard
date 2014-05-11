@@ -229,7 +229,7 @@ $( document ).ready(function() {
         //alert("displayBarcode invoked");
         var height = $( window ).height();
         var width = $( window ).width();
-        alert(width);
+        //alert(width);
         var bWidth = 1;
         var bHeight = 50;
 

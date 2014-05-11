@@ -159,7 +159,7 @@ select {
     border-style: solid;
     font-size: 1em;
     margin-bottom: 5%;
-    padding: 4%;
+    padding: 8%; /* was 4% */
     width: 80%;
     border-width: 2px;
 }
@@ -200,7 +200,7 @@ input[type="submit"] {
     
     
     h5 {
-        font-size: 100%;
+        font-size: 150%;
         color: #002145;
     }
     
@@ -242,15 +242,15 @@ input[type="submit"] {
         border-width: 5px;
         margin-bottom: 5%;
         padding: 1%;
-        font-size: 300%;
+        font-size: 250%;
     }
     
     select {
-        padding: 5%;
+        padding: 8%; /* was 5% */
         width: 70%;
         border-width: 5px;
         margin-bottom: 5%;
-        font-size: 300%;
+        font-size: 250%;
     }
     
     input[type="submit"] {
@@ -302,7 +302,7 @@ input[type="submit"] {
     }
 
     .acard {
-        padding-bottom: 30%;
+        padding-bottom: 35%;
         width: 80%;
     }  
     
