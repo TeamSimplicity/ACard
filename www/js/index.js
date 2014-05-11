@@ -229,21 +229,21 @@ $( document ).ready(function() {
         //alert("displayBarcode invoked");
         var height = $( window ).height();
         var width = $( window ).width();
-        //alert(width);
+        alert(width);
         var bWidth = 1;
         var bHeight = 50;
 
         if(width >= 900){
           //alert("width above or equal to 900");
-          bWidth = 4;
-          bHeight= 99;
+          bWidth = 3;
+          bHeight= 85;
 
         }
         else {
           if (width >= 700){
           //alert("width above or equal to 700");
-          bWidth = 3;
-          bHeight= 75;
+          bWidth = 2;
+          bHeight= 65;
 
 
         }
