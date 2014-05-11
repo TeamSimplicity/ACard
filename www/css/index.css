@@ -146,7 +146,7 @@ input {
     font-family: whitney-bold;
     width: 80%;  
     border-width: 2px;
-    padding: 4%;
+    height: 75px;
     font-size: 1em;   
 }
 
@@ -159,7 +159,7 @@ select {
     border-style: solid;
     font-size: 1em;
     margin-bottom: 5%;
-    padding: 8%; /* was 4% */
+    height: 75px;
     width: 80%;
     border-width: 2px;
 }
@@ -238,19 +238,23 @@ input[type="submit"] {
     } 
     
     input {
+        text-align:center;
+        vertical-align:middle;
         width: 70%;
         border-width: 5px;
         margin-bottom: 5%;
-        padding: 1%;
+        height: 80px;
         font-size: 250%;
     }
     
-    select {
-        padding: 8%; /* was 5% */
+    select {     
         width: 70%;
         border-width: 5px;
         margin-bottom: 5%;
-        font-size: 250%;
+        height: 80px;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        font-size: 2em;      
     }
     
     input[type="submit"] {
