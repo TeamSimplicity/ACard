@@ -93,7 +93,7 @@ $( document ).ready(function() {
         $('#splashpage').fadeOut('');
         $('#signup-form').fadeIn('');
         //POPULATE the years dropdown. Function takes in starting year
-        populateYears(1980);
+        populateYears(1940);
         //POPULATE the faculties dropdown.
         populateFaculties();
 
