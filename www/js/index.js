@@ -159,7 +159,6 @@ $( document ).ready(function() {
             //var width = $( window ).width();
              //alert("Window Height:"+ height + " Window Width "+width);
         });
-             
 
 
     //ACTUAL FUNCTIONS START NOW
