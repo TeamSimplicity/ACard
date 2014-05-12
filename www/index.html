@@ -44,7 +44,7 @@
 </head>
     
 <body>
-    <p>FE v0.0.6|BE v0.0.5 barcodefont5</p>
+    <p>FE v0.0.6|BE v0.0.5 withvalidation</p>
 
     
     <div id="splashpage" class="splashpage container">
@@ -62,11 +62,11 @@
         <img class="logo" src="img/logo2.png" alt="logo">
 
         
-        <form id="signup">
+        <form id="signup" role="form" name="myForm">
             <h1 class="signup">Sign-Up Form</h1>
-            <input type="text" name="FName" id="FName" placeholder="First Name" />
-            <input type="text" name="LName" id="LName" placeholder="Last Name" />
-            <input type="email" name="EMail" id="Email" placeholder="Email Address" />
+            <input type="text" name="FName" id="FName" placeholder="First Name" maxlength="20"/>
+            <input type="text" name="LName" id="LName" placeholder="Last Name" maxlength="20"/>
+            <input type="email" name="EMail" id="Email" placeholder="Email Address" maxlength="20"/>
             <br style="clear: left;" />
             <label for="Faculty_ID">Select a Graduation Date:</label><br>
             <select id="Grad_Year" name="Grad_Year"></select>

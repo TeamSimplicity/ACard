@@ -58,7 +58,7 @@ $( document ).ready(function() {
       //Populate dat facultys dropdown
       //target element: select id="Faculty_ID"
       //API to access: http://tratnayake.me/Retrieve-Faculty.php  
-      
+          
       
     
       //Animations And Transitions
@@ -139,29 +139,70 @@ $( document ).ready(function() {
       });
 
 
-        //Submit button on form
-        $('#signup-form form').submit(function(){
+    //Submit button on form
+    $('#signup-form form').submit(function(){
         //alert("invoked");
-        var loading = $(this).find('input[type="submit"]');
-        loading.addClass('loading');
-        
-        var postData = $(this).serialize();
+            
+            //Do a check, and if true only continue
+        if (validate()){           
+            var loading = $(this).find('input[type="submit"]');
+            loading.addClass('loading');
 
-        assignBarcode(postData);
+            var postData = $(this).serialize();
 
+            assignBarcode(postData);
 
-        $('#signup-form').fadeOut();
-        $('#page1').fadeIn();
+            $('#signup-form').fadeOut();
+            $('#page1').fadeIn();
 
-        return false;
-
-            //var height = $( window ).height();
-            //var width = $( window ).width();
-             //alert("Window Height:"+ height + " Window Width "+width);
-        });
+            return false;
+        }
+        else{            
+            return false;           
+        }
+    });
+             
 
 
     //ACTUAL FUNCTIONS START NOW
+    function validate() {
+        var fname=document.forms["myForm"]["FName"].value;
+        var lname=document.forms["myForm"]["LName"].value;
+        var email=document.forms["myForm"]["Email"].value;
+        var email2 = document.getElementById('Email');
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                
+        if ((fname==null) || (fname==""))
+        {
+            alert("First name must be filled out");					
+            return false;
+        }
+        
+        else if (lname==null || lname=="")
+        {
+            alert("Last name must be filled out");					           
+            return false;
+        }
+        
+        else if (email==null || email=="")
+        {
+            alert("Email must be filled out");					        
+            return false;
+        }
+        
+        else if (!filter.test(email2.value)) {
+            alert('Please provide a valid email address');
+            return false;
+        }
+        
+        else
+        {
+            return true;
+        }    
+    }        
+            
+            
+            
 
     function assignBarcode(postData){
       
