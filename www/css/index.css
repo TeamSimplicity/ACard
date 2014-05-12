@@ -254,7 +254,7 @@ input[type="submit"] {
         height: 80px;
         padding-top: 3%;
         padding-bottom: 3%;
-        font-size: 2em;      
+        font-size: 250%;      
     }
     
     input[type="submit"] {
@@ -276,6 +276,10 @@ input[type="submit"] {
         margin-top: 5%;
         margin-bottom: 10%;
     }
+    
+    .perksaccordian {
+        font-size: 200%;
+    }    
 }
 
 @media (min-width: 900px) {
@@ -324,7 +328,7 @@ input[type="submit"] {
     input {    
         width: 70%;
         border-width: 10px;
-        margin-bottom: 20%
+        margin-bottom: 10%
         padding: 8%;
         font-size: 300%;
     }
