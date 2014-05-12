@@ -177,7 +177,7 @@ $( document ).ready(function() {
 
                   if(resultarray[0]=="null"){
                     alert("There are no more barcodes to assign, please inform UBC alumni");
-                    return;
+                    location.reload();
                   }
                   else {
 
@@ -231,32 +231,29 @@ $( document ).ready(function() {
         var width = $( window ).width();
         //alert(width);
         var bWidth = 1;
-        var bHeight = 50;
+        var bHeight = 99;
+        var bFontsize = 20;
 
         if(width >= 900){
           //alert("width above or equal to 900");
           bWidth = 3;
-          bHeight= 85;
+          bHeight= 200;  
+          bFontsize = 40;    
 
         }
         else {
           if (width >= 700){
           //alert("width above or equal to 700");
-          bWidth = 2;
-          bHeight= 65;
-
-
+          bWidth = 3;
+          bHeight= 200;
+          bFontsize = 40;      
+     
         }
-        else{
-         // alert("width less than 700");
-          bWidth = 1;
-          
-
-        }
+ 
 
       }
 
-        $("#bcTarget").barcode(barcodenumber, "codabar",{barWidth:bWidth, barHeight:bHeight});
+        $("#bcTarget").barcode(barcodenumber, "codabar",{barWidth:bWidth, barHeight:bHeight, fontSize:bFontsize});
 
     }
 
