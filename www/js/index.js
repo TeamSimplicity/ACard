@@ -41,6 +41,7 @@ $( document ).ready(function() {
       displayBarcode(localStorage.barcodeNumber);
       $("#User_Name").append(localStorage.userName);
       $("#Name").append(localStorage.userName);
+      $('#Faculty').append(localStorage.userFaculty);
 
       //alert("There is stuff in local storage");
       $('#splashpage').hide();
@@ -149,8 +150,19 @@ $( document ).ready(function() {
             loading.addClass('loading');
 
             var postData = $(this).serialize();
+            alert("test");
+            
+            alert("test2");
 
             assignBarcode(postData);
+
+            //Record the users Faculty
+            var Faculty = $('#Faculty_ID option:selected').text();
+
+            //Store in the localStorage so it can be retrieved later.
+            localStorage.userFaculty = Faculty;
+            $('#Faculty').append(localStorage.userFaculty);
+
 
             $('#signup-form').fadeOut();
             $('#page1').fadeIn();
