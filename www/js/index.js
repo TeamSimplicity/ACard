@@ -362,7 +362,7 @@ $( document ).ready(function() {
     function displayPerksAccordian(){
 
       //Clear the accordian tabs:
-      for ( var i = 1; i < 5; i++ ) {
+      for ( var i = 1; i <= 5; i++ ) {
     
       $('#PerkCategory'+i+" div").empty();
       }
