@@ -86,7 +86,10 @@
           for ($x=$StartNumber; $x<=$StartNumber+$range; $x++) {
                 $newNumber++;
                 echo "The number is: $newNumber <br>";
-              } 
+          }
+          $newCheckDigit = $StartCheckDigit - 2; 
+
+          echo " " . $newCheckDigit;
 
               echo "test";
 
