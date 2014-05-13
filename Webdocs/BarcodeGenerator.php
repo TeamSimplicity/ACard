@@ -64,41 +64,82 @@
         <h1>A-Card App Admin Menu  <span class="glyphicon glyphicon-ok"></span> </h1>
         <p class="lead"> Allows you administrate the perks database without the pesky PHPMyAdmin
       </div>
+          <div>
+            <?PHP 
+              $InitialNumber= 29424301000000;
 
-    
-          <div><?PHP 
-          $InitialNumber= 29424301000010;
+              echo "Initial number: $InitialNumber";
 
-          echo $InitialNumber;
+              $CheckDigit = substr($InitialNumber, -1);
+              $SecondLastDigit = substr($InitialNumber, -2, 1);
+              $StartNumber = substr_replace($InitialNumber ,"",-1);
 
-          $StartCheckDigit = substr($InitialNumber, -1); 
-          $StartNumber = substr_replace($InitialNumber ,"",-1);
+              echo "<br>StartNumber (missing check digit): $StartNumber";
+              echo "<br> Start Check Digit: $CheckDigit";
 
-          echo "<br>StartNumber<br>";
-          echo $StartNumber;
-          echo "<br> Start Check Digit </br>";
-          echo $StartCheckDigit."<br>";
+              $numCodesToGenerate = 100000;
 
-          $range = 10;
+              //1. Create array
+              $barcodeArray = array();
+              $barcodeArray[] = $InitialNumber;
+
+              for ($x=$StartNumber; $x<=$StartNumber+$numCodesToGenerate; $x++) {
+                          //Check Tthe previous check digit, if 4 do something else
+                          //$SecondLastDigit = substr($newNumber, -2, 1);
+                          //echo "The second last digit is: ".$SecondLastDigit." <br>";
+                          //echo "the type of variable is ".gettype($SecondLastDigit);
+                          //settype($SecondLastDigit,"integer");
+                          //echo "<br>the type of variable is NOW ".gettype($SecondLastDigit);
+                          //echo "START Number = ".$x;
+
+                if ($x ==$StartNumber){
+                  $x++; //NOT SURE WHY THIS FIXES IT BUT IM SURE WE'LL FIND OUT
+                }
+                if($SecondLastDigit != '4') {
+                  $CheckDigit -= 2;
+                  //echo "NOT 4! <br>";
+                }
+                if($SecondLastDigit == '4') {
+                  $CheckDigit -= 3;
+                  //echo "IT's 4! <br>";
+                }
+
+                if($CheckDigit < 0) {
+                  $CheckDigit += 10;
+                }
+                $barcodeNumber = $x . $CheckDigit;
+                $SecondLastDigit = substr($barcodeNumber, -2, 1);
+                
+                //2. Put element into $barcodeArray
+                $barcodeArray[] = $barcodeNumber;
+                
+              }
 
 
-          $newNumber = $StartNumber;
-          for ($x=$StartNumber; $x<=$StartNumber+$range; $x++) {
-                $newNumber++;
-                echo "The number is: $newNumber <br>";
-          }
-          $newCheckDigit = $StartCheckDigit - 2; 
+              //3. INSERT INTO DB
+              echo "<br><br>ARRAY BEGINS HERE:<br><br>";
+              for($i = 0; $i < count($barcodeArray); $i++) {
+                print_r($barcodeArray[$i]);
+                echo "<br>";
+              }
 
-          echo " " . $newCheckDigit;
+              //4. DB Insert
+              $server = "acardadmin.db.11988260.hostedresource.com";
+              $username = "acardadmin";
+              $password = "Hello123!";
+              $database = "acardadmin";
 
-              echo "test";
+              $con = mysql_connect($server, $username, $password) or die ("Could not connect: " . mysql_error());
+              mysql_select_db($database, $con);
 
-          
-
-          ?></div>
-
-
-
+              for($j = 0; $j < count($barcodeArray); $j++) {
+                //$sql = "INSERT INTO Barcodes(Barcode, Assigned) VALUES('". $barcodeArray[$j] ."', '0')";
+                //UNCOMMENT THE ABOVE IF YOU WANT TO INSERT BARCODES
+                mysql_query($sql) or die ("Query error: " . mysql_error());
+              }
+              mysql_close($con);
+            ?>
+          </div>
     </div>
           
     
