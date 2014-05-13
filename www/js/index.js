@@ -169,6 +169,8 @@ $( document ).ready(function() {
         var fname=document.forms["myForm"]["FName"].value;
         var lname=document.forms["myForm"]["LName"].value;
         var email=document.forms["myForm"]["Email"].value;
+        var grad=document.forms["myForm"]["Grad_Year"].value;
+        var faculty=document.forms["myForm"]["Faculty_ID"].value;
         var email2 = document.getElementById('Email');
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 
@@ -190,8 +192,21 @@ $( document ).ready(function() {
             return false;
         }
         
-        else if (!filter.test(email2.value)) {
+        else if (!filter.test(email2.value))
+        {
             alert('Please provide a valid email address');
+            return false;
+        }
+        
+        else if (grad==null || grad=="")
+        {
+            alert('Internet access is required to validate user');
+            return false;
+        }
+        
+        else if (faculty==null || faculty=="")
+        {
+            alert('Internet access is required to validate user');
             return false;
         }
         
@@ -217,7 +232,7 @@ $( document ).ready(function() {
                   //alert("after split");
 
                   if(resultarray[0]=="null"){
-                    alert("There are no more barcodes to assign, please inform UBC alumni");
+                    alert("There are no more A-Cards available. Please contact UBC alumni");
                     location.reload();
                   }
                   else {
@@ -348,15 +363,10 @@ $( document ).ready(function() {
         });
       }
       else{
-        alert("You need internet access to pull from the Perks Table")
+        alert("Internet access is required to update the Perks Table")
 
           
-      }
-
-
-
-
-      
+      }   
     }
 
     function displayPerksAccordian(){
