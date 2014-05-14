@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+ /**
+  * www/index.html
+  *
+  * View page for application
+  *
+  * @author	Simplicity
+  * ------------------------------------------------------------------------
+  */
 -->
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -44,9 +37,8 @@
 </head>
     
 <body>
-    <p>TESTING VERSION2</p>
-
     
+    <!-- intial splashpage -->
     <div id="splashpage" class="splashpage container">
         <img class="logo" src="img/logo2.png" class="img-responsive" alt="logo">      
         <img class="description" src="img/description.png" class="img-responsive" alt="description">      
@@ -56,11 +48,9 @@
         <h5>Note: To use an A-Card at the library, you can pick up a physical card in person at the Koerner or UBC Okanagan Libraries</h5>
     </div>     
 
-    
+    <!-- signup form -->
     <div id="signup-form" class="signupform container">
-  
         <img class="logo" src="img/logo2.png" alt="logo">
-
         
         <form id="signup" role="form" name="myForm">
             <h1 class="signup">Sign-Up Form</h1>
@@ -68,6 +58,7 @@
             <input type="text" name="LName" id="LName" placeholder="Last Name" maxlength="20"/>
             <input type="email" name="EMail" id="Email" placeholder="Email Address" maxlength="40"/>
             <br style="clear: left;" />
+            
             <label for="Faculty_ID">Select Graduation Date:</label><br>
             <select id="Grad_Year" name="Grad_Year"></select>
             <br style="clear: left;" />
@@ -80,29 +71,36 @@
         <br style="clear: left;" />
     </div>
 
-
+    <!-- barcode page -->
     <div id="page1" class="page1 container">
+        
+            <!-- nav bar -->
             <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
             <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
             <button class="btnchoices col-xs-4" value="about-btn">About</button>
            
+            <!-- barcode -->
             <img class="logosecondary" src="img/logo2.png" class="img-responsive" alt="logo">
             <div id="bcTarget" style="margin:auto"></div> 
             <h3 id="Name"></h3>
             <h4 id="Faculty"></h4>
     </div>
 
+    <!-- perks page -->
     <div id="page2" class="page2 container">
+        
+            <!-- nav bar -->
             <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
             <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
             <button class="btnchoices col-xs-4" value="about-btn">About</button>
            
-
             <h1 class="signup">PERKS</h1>
+        
             <!--Start of the Accordian -->
             <div class="panel-group" id="accordion">
                 
-                <div class="panel panel-default">
+                <!-- heading 1 -->
+                <div class="panel panel-default">                        
                   <div class="panel-heading">
                     <h4 class="panel-title">
                       <a class="perksaccordian" data-toggle="collapse" data-parent="#accordion" href="#PerkCategory1">
@@ -110,12 +108,14 @@
                       </a>
                     </h4>
                   </div>
+                <!-- items 1 -->        
                   <div id="PerkCategory1" class="panel-collapse collapse in">
                     <div class="panel-body perksaccordian">
                       
                     </div>
                   </div>
                 </div>
+                <!-- heading 2 -->
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -124,12 +124,14 @@
                       </a>
                     </h4>
                   </div>
+                <!-- items 2 -->    
                   <div id="PerkCategory2" class="panel-collapse collapse">
                     <div class="panel-body perksaccordian">
                      
                     </div>
                   </div>
                 </div>
+                <!-- heading 3 -->
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -138,12 +140,14 @@
                       </a>
                     </h4>
                   </div>
+                <!-- items 3 -->    
                   <div id="PerkCategory3" class="panel-collapse collapse">
                     <div class="panel-body perksaccordian">
                     
                     </div>
                   </div>
                 </div>
+                <!-- heading 4 -->
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -152,12 +156,14 @@
                       </a>
                     </h4>
                   </div>
+                <!-- item 4 -->    
                   <div id="PerkCategory4" class="panel-collapse collapse">
                     <div class="panel-body perksaccordian">
                       
                     </div>
                   </div>
                 </div>
+                <!-- heading 5 -->
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -166,6 +172,7 @@
                       </a>
                     </h4>
                   </div>
+                <!-- item 5 -->    
                   <div id="PerkCategory5" class="panel-collapse collapse">
                     <div class="panel-body perksaccordian">
                       
@@ -173,11 +180,11 @@
                   </div>
                 </div>
 
-              </div>
-<!--End of accordian -->
+              </div> <!--End of accordian -->
 
     </div>
 
+    <!-- about page -->
     <div id="page3" class="page3 container">
             <button class="btnchoices col-xs-4" value="acard-btn">A-Card</button>
             <button class="btnchoices col-xs-4" value="perks-btn">Perks</button>
@@ -188,13 +195,10 @@
 
     </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
-   
+    <script type="text/javascript" src="cordova.js"></script>  
     <script type="text/javascript" src="js/jquery-mobile-1.4.2.js"></script>  
     <script type="text/javascript" src="js/jquery-barcode.js"></script>
     <script type="text/javascript" src="js/index.js"></script>  
-
-	
 
 </body>
 </html>

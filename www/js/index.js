@@ -1,11 +1,18 @@
+ /**
+  * www/js/index.js
+  *
+  * JavaScript page for application
+  *
+  * @author	Simplicity
+  * ------------------------------------------------------------------------
+  */
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
-    //
     function onDeviceReady() {
         //checkConnection();
     
-
         function checkConnection() {
             var networkState = navigator.connection.type;
 
@@ -26,118 +33,103 @@ document.addEventListener("deviceready", onDeviceReady, false);
             }
             else{
                 return true;
-            }
-            
+            }          
         }
-//Not familliar with jQuery? Think of this as your MAIN class.
+        
+    //MAIN class.
+    $( document ).ready(function() {
 
-$( document ).ready(function() {
-  
-    //DEBUG alert("Check Connection START" +checkConnection());
+        //DEBUG alert("Check Connection START" +checkConnection());
 
-    //Check if there's anything in the phone memory.
-    if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
-      //If there is a name and number in memory then do this.
-      displayBarcode(localStorage.barcodeNumber);
-      $("#User_Name").append(localStorage.userName);
-      $("#Name").append(localStorage.userName);
-      $('#Faculty').append(localStorage.userFaculty);
+        //Check if there's anything in the phone memory.
+        if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
+          //If there is a name and number in memory then do this.
+          displayBarcode(localStorage.barcodeNumber);
+          $("#User_Name").append(localStorage.userName);
+          $("#Name").append(localStorage.userName);
+          $('#Faculty').append(localStorage.userFaculty);
 
-      //alert("There is stuff in local storage");
-      $('#splashpage').hide();
-      $('#signup-form').hide();
-      $('#page1').show();
-      $('#page2').hide();
-      $('#page3').hide();
-      //var height = $( window ).height();
-      //var width = $( window ).width();
-      //alert("Window Height:"+ height + " Window Width "+width);
+          //alert("There is stuff in local storage");
+          $('#splashpage').hide();
+          $('#signup-form').hide();
+          $('#page1').show();
+          $('#page2').hide();
+          $('#page3').hide();
+          //var height = $( window ).height();
+          //var width = $( window ).width();
+          //alert("Window Height:"+ height + " Window Width "+width);
+        }
+        else {
+          //Populate dat facultys dropdown
+          //target element: select id="Faculty_ID"
+          //API to access: http://tratnayake.me/Retrieve-Faculty.php  
 
-    }
-    else {
-
-      //Populate dat facultys dropdown
-      //target element: select id="Faculty_ID"
-      //API to access: http://tratnayake.me/Retrieve-Faculty.php  
-          
-      
-    
-      //Animations And Transitions
-      $('#splashpage').show();
-      $('#signup-form').hide();
-      $('#page1').hide();
-      $('#page2').hide();
-      $('#page3').hide();
-
+          //Animations And Transitions
+          $('#splashpage').show();
+          $('#signup-form').hide();
+          $('#page1').hide();
+          $('#page2').hide();
+          $('#page3').hide();
        }
-});
+    });
 
 
-      //Event Listeners
+    //Event Listeners
 
-      //DEV ONLY: Clear Memory button. DELETE BEFORE DEPLOYMENT~
-      $( "button[value='clearmem-btn']").click(function(){
+    //DEV ONLY: Clear Memory button. DELETE BEFORE DEPLOYMENT~
+    $( "button[value='clearmem-btn']").click(function(){
         localStorage.clear();
-      });
+    });
 
 
-      $( "button[value='screensize-btn']").click(function(){
+    $( "button[value='screensize-btn']").click(function(){
         height = $( window ).height();
         width = $( window ).width();
         alert("Window Height:"+ height + " Window Width "+width);
-      });
+    });
 
 
-      //That MAIN "Sign-Up!" BUTTON
-      $('#splashenter').click(function(){
-        
+    //That MAIN "Sign-Up!" BUTTON
+    $('#splashenter').click(function(){
         $('#splashpage').fadeOut('');
         $('#signup-form').fadeIn('');
         //POPULATE the years dropdown. Function takes in starting year
         populateYears(1940);
         //POPULATE the faculties dropdown.
         populateFaculties();
+    });
 
-      });
+        
+    //Top button bar
+    //A-Card button (value="acard-btn")
 
-      //Top button bar
-
-      //A-Card button (value="acard-btn")
-
-        //What it does is apply to every thing with value a-card btn
-      $( "button[value='acard-btn']").click(function(){
+    //What it does is apply to every thing with value a-card btn
+    $( "button[value='acard-btn']").click(function(){
         $('#page2').hide();
         $('#page3').hide();
         $('#page1').show();
-        
+    });
 
-      });
-
-      //Perks button
-      $( "button[value='perks-btn']").click(function(){
+    //Perks button
+    $( "button[value='perks-btn']").click(function(){
         pullPerks();
-        
+
         //displayPerksAccordian();
         //alert("this fires");
-        
+
         $('#page1').hide();
         $('#page3').hide();
         $('#page2').show();
 
         displayPerksAccordian();
-       
-        
+    });
 
-
-      });
-
-      //About button
-      $( "button[value='about-btn']").click(function(){
+    //About button
+    $( "button[value='about-btn']").click(function(){
         $('#page1').hide();
         $('#page2').hide();
         $('#page3').show();
-
-      });
+    });
 
 
     //Submit button on form
@@ -231,55 +223,54 @@ $( document ).ready(function() {
             
             
 
-    function assignBarcode(postData){
-      
-            $.ajax({
-                type: 'POST',
-                data: postData,
-                url: 'http://tratnayake.me/Assign-Barcode.php',
-                success: function(data){
-                 //alert(data);
-                 
-                  var resultarray = data.split(".");
-                  //alert("after split");
+    function assignBarcode(postData){      
+        $.ajax({
+            type: 'POST',
+            data: postData,
+            url: 'http://tratnayake.me/Assign-Barcode.php',
+            success: function(data){
+             //alert(data);
 
-                  if(resultarray[0]=="null"){
-                    alert("There are no more A-Cards available. Please contact UBC alumni");
-                    location.reload();
-                  }
-                  else {
+              var resultarray = data.split(".");
+              //alert("after split");
 
+              if(resultarray[0]=="null"){
+                alert("There are no more A-Cards available. Please contact UBC alumni");
+                location.reload();
+              }
+              else {
 
 
-                  var barcodenum = resultarray[0].replace(/\D/g,'');
-                  //alert(barcodenum);
-                  var res = data.replace(/\D/g,'')
-                  var Name = resultarray[1];
-                  //alert(Name);
-                  var nameCleaned = Name.replace(/\"/g, "")
-                  //alert("Before display");
 
-                  
-                    displayBarcode(barcodenum);
-                    $("#User_Name").append(nameCleaned);
-                    $("#Name").append(nameCleaned);    
-                //alert ("after display");
+              var barcodenum = resultarray[0].replace(/\D/g,'');
+              //alert(barcodenum);
+              var res = data.replace(/\D/g,'')
+              var Name = resultarray[1];
+              //alert(Name);
+              var nameCleaned = Name.replace(/\"/g, "")
+              //alert("Before display");
 
-                //STORE into LOCALSTORAGE
-                localStorage.barcodeNumber = barcodenum;
-                localStorage.userName = nameCleaned;
-                pullPerks();
-                displayPerksAccordian();
 
-                    
-                    console.log('Form Sent!');
-                  }
-                },
-                error: function(){
-                    loading.removeClass('loading');
-                    console.log('There was an error');
-                }
-            });
+                displayBarcode(barcodenum);
+                $("#User_Name").append(nameCleaned);
+                $("#Name").append(nameCleaned);    
+            //alert ("after display");
+
+            //STORE into LOCALSTORAGE
+            localStorage.barcodeNumber = barcodenum;
+            localStorage.userName = nameCleaned;
+            pullPerks();
+            displayPerksAccordian();
+
+
+                console.log('Form Sent!');
+              }
+            },
+            error: function(){
+                loading.removeClass('loading');
+                console.log('There was an error');
+            }
+        });
     }
 
     function populateYears(startingYear){
@@ -289,8 +280,6 @@ $( document ).ready(function() {
       for (var i = startYear; i < currentYear; i++) {
         $('#Grad_Year').append("<option value="+i+">"+i+"</option>");
       };
-
-
     }
 
     function displayBarcode(barcodenumber){
@@ -317,32 +306,30 @@ $( document ).ready(function() {
           bFontsize = 40;      
      
         }
- 
-
-      }
+    }
 
         $("#bcTarget").barcode(barcodenumber, "codabar",{barWidth:bWidth, barHeight:bHeight, fontSize:bFontsize});
 
     }
 
     function populateFaculties(){
-      var faculty = $('#Faculty_ID');
-                        
-    $.ajax({
-      type: 'GET',
-      url: 'http://tratnayake.me/Retrieve-Faculty.php?&jsoncallback=?',
-      dataType: 'JSONp',
-      timeout: 5000,
-      success: function(data) {
-        $.each(data, function(i,item){
-          faculty.append("<option value=" + item.Faculty_ID + ">" + item.Faculty_Name)
+        var faculty = $('#Faculty_ID');
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://tratnayake.me/Retrieve-Faculty.php?&jsoncallback=?',
+            dataType: 'JSONp',
+            timeout: 5000,
+            success: function(data) {
+                $.each(data, function(i,item){
+                  faculty.append("<option value=" + item.Faculty_ID + ">" + item.Faculty_Name)
+            });
+            },
+            error: function (data) {
+                bugs.append('<li>There was an error loading the bugs');
+                faculty
+            }
         });
-      },
-      error: function (data) {
-        bugs.append('<li>There was an error loading the bugs');
-        faculty
-      }
-    });
     }
 
     function pullPerks(){
