@@ -92,7 +92,11 @@ body {
 
 h1, h3, h4 {
     font-size: 175%;
-} 
+}
+
+h4#Faculty {
+    font-size: 100%;
+}    
 
 h5 {
     font-size: 75%;
@@ -198,6 +202,10 @@ input[type="submit"] {
         font-size: 300%;
     }   
     
+    h4#Faculty {
+        font-size: 200%;
+    }
+    
     
     h5 {
         font-size: 150%;
@@ -281,6 +289,10 @@ input[type="submit"] {
 @media (min-width: 900px) {
     h1, h3, h4 {
         font-size: 400%;
+    }
+    
+    h4#Faculty {
+        font-size: 300%;
     }
     
     h5 {
