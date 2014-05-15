@@ -45,6 +45,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
         if(localStorage.userName!= undefined && localStorage.barcodeNumber != undefined ){
           //If there is a name and number in memory then do this.
           displayBarcode(localStorage.barcodeNumber);
+
+          pullPerks();
+          displayPerksBadge();
+          //displayFeaturedPerksBadge();
           $("#User_Name").append(localStorage.userName);
           $("#Name").append(localStorage.userName);
           $('#Faculty').append(localStorage.userFaculty);
@@ -169,6 +173,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
     //ACTUAL FUNCTIONS START NOW
+ function displayPerksBadge(){
+
+       var perksArray = JSON.parse(localStorage.perksContainer);
+
+       
+    }
+
     function validate() {
         var fname=document.forms["myForm"]["FName"].value;
         var lname=document.forms["myForm"]["LName"].value;
@@ -332,6 +343,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
         });
     }
 
+   
+
     function pullPerks(){
       
       //alert(checkConnection())
@@ -368,6 +381,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       }   
     }
 
+    
     function displayPerksAccordian(){
 
       //Clear the accordian tabs:
@@ -383,6 +397,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
         //alert("Display perks invoked");
         
       jQuery.each(perksArray,function(i,val){
+
         if(val.PerkActive=="1"){
           console.log(val.PerkContent);
           var perkCatNum = val.PerkCategory_ID;
