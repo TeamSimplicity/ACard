@@ -98,7 +98,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
         $('#splashpage').fadeOut('');
         $('#signup-form').fadeIn('');
         //POPULATE the years dropdown. Function takes in starting year
-        populateYears(1940);
+        populateYears(1930);
         //POPULATE the faculties dropdown.
         populateFaculties();
     });
@@ -146,9 +146,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
             loading.addClass('loading');
 
             var postData = $(this).serialize();
-            alert("test");
-            
-            alert("test2");
 
             assignBarcode(postData);
 
@@ -288,7 +285,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       var currentYear = (new Date).getFullYear();
       var startYear = startingYear;
 
-      for (var i = startYear; i < currentYear; i++) {
+      for (var i = startYear; i <= currentYear; i++) {
         $('#Grad_Year').append("<option value="+i+">"+i+"</option>");
       };
     }

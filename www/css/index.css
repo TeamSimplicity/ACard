@@ -96,8 +96,16 @@ h5 {
     color: #002145;
 }
 
-h5.aboutmain {
+h4.aboutmain {
     font-size: 100%;
+    text-align: justify;
+    padding-bottom: 5%;
+}
+
+h4.aboutlist {
+    font-size: 75%;
+    text-align: left;
+    padding-bottom: 2%;
 }
 
 /* main logo */
@@ -212,6 +220,17 @@ input[type="submit"] {
         font-size: 200%;
     }
     
+    h4.aboutmain {
+        font-size: 200%;
+        text-align: justify;
+        padding-bottom: 5%;
+    }  
+    
+    h4.aboutlist {
+        font-size: 175%;
+        text-align: left;
+        padding-bottom: 5%;
+    }    
     
     h5 {
         font-size: 150%;
@@ -318,13 +337,25 @@ input[type="submit"] {
     }
     
     h5 {
-        font-size: 300%
+        font-size: 425%
         color: #002145;    
     }
     
+    h4.aboutmain {
+        font-size: 300%;
+        text-align: justify;
+        padding-bottom: 5%;
+    }  
+    
+    h4.aboutlist {
+        font-size: 270%;
+        text-align: left;
+        padding-bottom: 5%;
+    }    
+    
     /* main logo */
     .logo {
-        padding-top: 15%;
+        padding-top: 10%;
         padding-bottom: 10%;
         width: 90%;
     }
@@ -344,7 +375,7 @@ input[type="submit"] {
 
     /* picture of card on splash page */
     .acard {
-        padding-bottom: 20%;
+        padding-bottom: 10%;
         width: 80%;
     }  
     
@@ -353,16 +384,16 @@ input[type="submit"] {
         padding: 5% 20%; 
         border-radius:25px;
         font-size: 2.5em;  
-        margin-bottom: 20%;
+        margin-bottom: 10%;
     }
     
     /* signup heading on form */
     .signup {
-        padding-bottom: 10%;
+        padding-bottom: 5%;
     }
     
     .labelheading {
-        font-size: 2em;
+        font-size: 3em;
     }
     
     /* input text box */
@@ -402,7 +433,7 @@ input[type="submit"] {
 
         font-size: 300%;
         margin-top: 10%;
-        margin-bottom: 15%;
+        margin-bottom: 10%;
     }
     
 
