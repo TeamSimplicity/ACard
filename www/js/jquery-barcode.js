@@ -530,11 +530,7 @@
         }
         
         // add stop : A->D : arbitrary choose A
-<<<<<<< HEAD
-        result += this.encoding[18];
-=======
-        result += this.encoding[17];
->>>>>>> FETCH_HEAD
+        result += this.encoding[16];
         return(result);
       }
     },
