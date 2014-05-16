@@ -285,7 +285,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       var currentYear = (new Date).getFullYear();
       var startYear = startingYear;
 
-      for (var i = startYear; i <= currentYear; i++) {
+      for (var i = currentYear; i >= startYear; i--) {
         $('#Grad_Year').append("<option value="+i+">"+i+"</option>");
       };
     }
