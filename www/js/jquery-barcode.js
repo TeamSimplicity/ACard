@@ -530,7 +530,7 @@
         }
         
         // add stop : A->D : arbitrary choose A
-        result += this.encoding[16];
+        result += this.encoding[18];
         return(result);
       }
     },
