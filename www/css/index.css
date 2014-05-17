@@ -208,10 +208,6 @@ input[type="submit"] {
     padding: 3%;
 }
 
-.perkslist {
-    text-align: left;
-}    
-
 
    
 /* css for devices greater than 700px and less than 900px */
@@ -225,13 +221,13 @@ input[type="submit"] {
     }
     
     h4.aboutmain {
-        font-size: 225%;
+        font-size: 200%;
         text-align: justify;
         padding-bottom: 5%;
     }  
     
     h4.aboutlist {
-        font-size: 200%;
+        font-size: 175%;
         text-align: left;
         padding-bottom: 5%;
     }    
@@ -346,13 +342,13 @@ input[type="submit"] {
     }
     
     h4.aboutmain {
-        font-size: 325%;
+        font-size: 300%;
         text-align: justify;
         padding-bottom: 5%;
     }  
     
     h4.aboutlist {
-        font-size: 300%;
+        font-size: 270%;
         text-align: left;
         padding-bottom: 5%;
     }    
