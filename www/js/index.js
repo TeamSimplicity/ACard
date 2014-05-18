@@ -235,7 +235,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
         $.ajax({
             type: 'POST',
             data: postData,
-            url: 'http://tratnayake.me/Assign-Barcode.php',
+            url: 'http://ubcdae-swacd1.advancement.ubc.ca/Assign-Barcode.php',
             success: function(data){
              //alert(data);
 
@@ -325,7 +325,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
         $.ajax({
             type: 'GET',
-            url: 'http://tratnayake.me/Retrieve-Faculty.php?&jsoncallback=?',
+            url: 'http://ubcdae-swacd1.advancement.ubc.ca/Retrieve-Faculty.php?&jsoncallback=?',
             dataType: 'JSONp',
             timeout: 5000,
             success: function(data) {
@@ -352,7 +352,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             var perksArray = [];
       $.ajax({
         type: 'GET',
-          url: 'http://tratnayake.me/Retrieve-Perks.php?&jsoncallback=?',
+          url: 'http://ubcdae-swacd1.advancement.ubc.ca/Retrieve-Perks.php?&jsoncallback=?',
           dataType: 'JSONp',
           timeout: 5000,
           success: function(data) {
